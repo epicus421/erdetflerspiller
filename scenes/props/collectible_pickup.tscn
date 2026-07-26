@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bvh5exc0vo0bc"]
+
+[ext_resource type="Script" uid="uid://u5tccfknp66a" path="res://scenes/props/collectible_pickup.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dhj6am0bt23e2" path="res://assets/textures/images/note.png" id="2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xi1r7"]
+radius = 0.98897797
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0ce8"]
+albedo_texture = ExtResource("2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xi1r7"]
+material = SubResource("StandardMaterial3D_i0ce8")
+size = Vector2(0.4, 0.6)
+
+[node name="CollectiblePickup" type="Area3D" unique_id=716730114]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1940970422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.46450353)
+shape = SubResource("SphereShape3D_xi1r7")
+
+[node name="Placeholder" type="MeshInstance3D" parent="." unique_id=360759736]
+mesh = SubResource("QuadMesh_xi1r7")
+
+[node name="PromptLabel3D" type="Label3D" parent="." unique_id=1918112462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "E — Plukk opp"

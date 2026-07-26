@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bcka80usfl4am" path="res://addons/fpstemplate/Weapons/Scripts/WeaponSlotScript.gd" id="1"]
+
+[node name="Holster" type="Node3D" unique_id=2089547165]
+
+[node name="HolsterModel" type="Node3D" parent="." unique_id=1640386252]
+
+[node name="HolsterAttackPoint" type="Marker3D" parent="HolsterModel" unique_id=464713455]
+
+[node name="HolsterSlot" type="Node3D" parent="." unique_id=255369460 node_paths=PackedStringArray("model", "attackPoint", "muzzleFlashSpawner")]
+script = ExtResource("1")
+model = NodePath("../HolsterModel")
+attackPoint = NodePath("../HolsterModel/HolsterAttackPoint")
+muzzleFlashSpawner = NodePath("../HolsterModel/HolsterAttackPoint")

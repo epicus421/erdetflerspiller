@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6emf2ic7ck5o"
+path="res://.godot/imported/aah du fikk kjopt grus.ogg-dca68fd30614e3be6e8908f1784d3472.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/aah du fikk kjopt grus.ogg"
+dest_files=["res://.godot/imported/aah du fikk kjopt grus.ogg-dca68fd30614e3be6e8908f1784d3472.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

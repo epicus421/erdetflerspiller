@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bodkixm8bubes"]
+
+[ext_resource type="PackedScene" uid="uid://c38uugpgw7hjm" path="res://addons/proton_scatter/demos/assets/models/mushrooms.glb" id="1"]
+[ext_resource type="Texture2D" uid="uid://bjdgw8o5tr1a3" path="res://addons/proton_scatter/demos/assets/textures/mushroom.png" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5aqh"]
+albedo_texture = ExtResource("2")
+
+[node name="mushrooms" unique_id=1834433213 instance=ExtResource("1")]
+
+[node name="Sphere_001" parent="." index="0" unique_id=722162501]
+material_override = SubResource("StandardMaterial3D_i5aqh")

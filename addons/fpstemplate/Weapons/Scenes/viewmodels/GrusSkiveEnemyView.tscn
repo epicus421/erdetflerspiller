@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://g6mb7r3mpg5"]
+
+[ext_resource type="Script" uid="uid://de73qwyvos4ke" path="res://addons/fpstemplate/Weapons/Scripts/EnemyWeaponView.gd" id="1"]
+
+[node name="GrusSkiveEnemyView" type="Node3D" unique_id=209221547]
+script = ExtResource("1")

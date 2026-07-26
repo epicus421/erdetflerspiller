@@ -1,0 +1,49 @@
+@tool
+extends Resource
+
+
+
+
+var size: Vector3
+var center: Vector3
+var min: Vector3
+var max: Vector3
+
+var _points: = 0
+
+
+func clear() -> void :
+	size = Vector3.ZERO
+	center = Vector3.ZERO
+	min = Vector3.ZERO
+	max = Vector3.ZERO
+	_points = 0
+
+
+func feed(point: Vector3) -> void :
+	if _points == 0:
+		min = point
+		max = point
+
+	min = _minv(min, point)
+	max = _maxv(max, point)
+	_points += 1
+
+
+
+func compute_bounds() -> void :
+	if min == null or max == null:
+		return
+
+	size = max - min
+	center = min + (size / 2.0)
+
+
+
+func _minv(v1: Vector3, v2: Vector3) -> Vector3:
+	return Vector3(min(v1.x, v2.x), min(v1.y, v2.y), min(v1.z, v2.z))
+
+
+
+func _maxv(v1: Vector3, v2: Vector3) -> Vector3:
+	return Vector3(max(v1.x, v2.x), max(v1.y, v2.y), max(v1.z, v2.z))

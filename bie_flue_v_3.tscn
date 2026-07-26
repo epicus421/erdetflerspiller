@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bdpp6p77awuhr"]
+
+[ext_resource type="PackedScene" uid="uid://jj2mktn7xkdk" path="res://assets/props/glb/falke/BieFlueV2.glb" id="1"]
+
+[node name="BieFlueV2" unique_id=1048432140 instance=ExtResource("1")]
+
+[node name="Armature" parent="." index="0" unique_id=1055538432]
+transform = Transform3D(0.67664045, -0.7322821, 0.076945454, 0.73629946, 0.672276, -0.076863535, 0.0045572068, 0.10866388, 0.9940681, 0.5368953, 0.24798235, -0.08724379)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1373651432]
+autoplay = &"Armature|ArmatureAction"

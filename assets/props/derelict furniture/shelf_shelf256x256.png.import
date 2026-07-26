@@ -1,0 +1,40 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://7m8dlx8qogxd"
+path.s3tc="res://.godot/imported/shelf_shelf256x256.png-8f29299bb6e1fcccc50e8bad331f4d2b.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "ae8cf54c6288ddded45eb8a173fb80d0"
+}
+
+[deps]
+
+source_file="res://assets/props/derelict furniture/shelf_shelf256x256.png"
+dest_files=["res://.godot/imported/shelf_shelf256x256.png-8f29299bb6e1fcccc50e8bad331f4d2b.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=1.0
+compress/uastc_level=2
+compress/rdo_quality_loss=0
+compress/hdr_compression=0
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=false
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

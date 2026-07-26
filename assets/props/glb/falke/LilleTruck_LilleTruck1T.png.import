@@ -1,0 +1,40 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://58pt8xr2gufu"
+path.s3tc="res://.godot/imported/LilleTruck_LilleTruck1T.png-23189875ff4fc2bbc6dd8079addd952e.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "f3f02f8233384b067cf4ef83b8cb9c66"
+}
+
+[deps]
+
+source_file="res://assets/props/glb/falke/LilleTruck_LilleTruck1T.png"
+dest_files=["res://.godot/imported/LilleTruck_LilleTruck1T.png-23189875ff4fc2bbc6dd8079addd952e.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=1.0
+compress/uastc_level=2
+compress/rdo_quality_loss=0
+compress/hdr_compression=0
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=false
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

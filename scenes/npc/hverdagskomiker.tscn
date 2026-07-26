@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="Script" uid="uid://duk3b2w2dn2c3" path="res://scenes/npc/hverdagskomiker.gd" id="2"]
+
+[node name="Hverdagskomiker" unique_id=1409618496 instance=ExtResource("1")]
+script = ExtResource("2")

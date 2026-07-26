@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://g2moat273ssu"]
+
+[ext_resource type="Script" uid="uid://cncw20hsn5jcf" path="res://scenes/props/kjiwi_door.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://o5thkug1hwmx" path="res://assets/textures/256x256/Metal/Horror_Metal_02-256x256.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://c7g5kemu0vo78" path="res://assets/sfx/erdetlyd/splice/dooropenkjiwi.wav" id="3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cs6m8"]
+albedo_color = Color(0.5931336, 0.59313357, 0.59313357, 1)
+albedo_texture = ExtResource("2")
+uv1_scale = Vector3(0.09, 0.09, 0.09)
+uv1_offset = Vector3(0.175, 0, 0)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+size = Vector3(1, 2.2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymcuq"]
+size = Vector3(1, 2.2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lonln"]
+albedo_color = Color(0.5931336, 0.59313357, 0.59313357, 1)
+albedo_texture = ExtResource("2")
+uv1_scale = Vector3(0.09, 0.09, 0.09)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kl5en"]
+size = Vector3(1, 2.2, 0.1)
+
+[node name="KjiwiDoor" type="Node3D" unique_id=1609789988]
+script = ExtResource("1")
+
+[node name="DoorLeft" type="Node3D" parent="." unique_id=964115582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorLeft" unique_id=61372356]
+material_override = SubResource("StandardMaterial3D_cs6m8")
+mesh = SubResource("BoxMesh_door")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorLeft/MeshInstance3D" unique_id=678009981]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorLeft/MeshInstance3D/StaticBody3D" unique_id=1313860853]
+shape = SubResource("BoxShape3D_ymcuq")
+
+[node name="DoorRight" type="Node3D" parent="." unique_id=1826464946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorRight" unique_id=1104837852]
+material_override = SubResource("StandardMaterial3D_lonln")
+mesh = SubResource("BoxMesh_door")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorRight/MeshInstance3D" unique_id=2115131387]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorRight/MeshInstance3D/StaticBody3D" unique_id=1347497300]
+shape = SubResource("BoxShape3D_kl5en")
+
+[node name="SignLabel" type="Label3D" parent="." unique_id=1421113635]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3.5904574e-08, 1.3899481, -0.08993411)
+modulate = Color(0.99999994, 0.1943762, 0.14415282, 1)
+text = "Ingen strøm
+Midlertidig stengt"
+font_size = 37
+outline_size = 0
+
+[node name="DoorSound" type="AudioStreamPlayer3D" parent="." unique_id=1369982779]
+stream = ExtResource("3")
+volume_db = -22.0
+unit_size = 14.43

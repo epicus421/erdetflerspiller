@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://cqnhy6mfvyhtc" path="res://scenes/props/kjiwi_door_trigger.gd" id="1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trigger"]
+size = Vector3(6, 3, 2)
+
+[node name="KjiwiDoorTrigger" type="Area3D" unique_id=1619518068]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=968611208]
+shape = SubResource("BoxShape3D_trigger")

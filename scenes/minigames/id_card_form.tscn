@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://drdluggxybpvx"]
+
+[ext_resource type="Script" uid="uid://d2shxlb76lvox" path="res://scenes/minigames/id_card_form.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+bg_color = Color(0.12, 0.12, 0.14, 0.97)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.2, 0.2, 0.22, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.4, 0.45, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_portrait"]
+bg_color = Color(0.18, 0.18, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.45, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_submit"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.2, 0.4, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cancel"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.4, 0.2, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="IDCardForm" type="CanvasLayer" unique_id=1096633107]
+layer = 10
+script = ExtResource("1")
+
+[node name="FormPanel" type="PanelContainer" parent="." unique_id=2070598195]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -183.0
+offset_right = 180.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="FormPanel" unique_id=1505443496]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="VBox" type="VBoxContainer" parent="FormPanel/MarginContainer" unique_id=2078428390]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="FormPanel/MarginContainer/VBox" unique_id=1699825828]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "SOKNAD OM NASJONALT ID-KORT"
+horizontal_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="FormPanel/MarginContainer/VBox" unique_id=1769380855]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FormPanel/MarginContainer/VBox" unique_id=1312868544]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FormPanel/MarginContainer/VBox/HBoxContainer" unique_id=1647827321]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameCaption" type="Label" parent="FormPanel/MarginContainer/VBox/HBoxContainer/VBoxContainer" unique_id=1990177746]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Fornavn"
+
+[node name="NameField" type="LineEdit" parent="FormPanel/MarginContainer/VBox/HBoxContainer/VBoxContainer" unique_id=1613823667]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+placeholder_text = "Fornavn"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="FormPanel/MarginContainer/VBox/HBoxContainer" unique_id=890180656]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SurnameCaption" type="Label" parent="FormPanel/MarginContainer/VBox/HBoxContainer/VBoxContainer2" unique_id=647521974]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Etternavn"
+
+[node name="SurnameField" type="LineEdit" parent="FormPanel/MarginContainer/VBox/HBoxContainer/VBoxContainer2" unique_id=955296778]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+placeholder_text = "Skriv etternavn"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FormPanel/MarginContainer/VBox" unique_id=1797238126]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FormPanel/MarginContainer/VBox/HBoxContainer2" unique_id=1208895902]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DOBCaption" type="Label" parent="FormPanel/MarginContainer/VBox/HBoxContainer2/VBoxContainer" unique_id=945887275]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Fodselsdato (DD.MM.YYYY)"
+
+[node name="DOBField" type="LineEdit" parent="FormPanel/MarginContainer/VBox/HBoxContainer2/VBoxContainer" unique_id=311911149]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+placeholder_text = "f.eks. 15.06.1990"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="FormPanel/MarginContainer/VBox/HBoxContainer2" unique_id=1470315378]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeightCaption" type="Label" parent="FormPanel/MarginContainer/VBox/HBoxContainer2/VBoxContainer2" unique_id=1400250272]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Hoyde i cm"
+
+[node name="HeightField" type="LineEdit" parent="FormPanel/MarginContainer/VBox/HBoxContainer2/VBoxContainer2" unique_id=869774885]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+placeholder_text = "f.eks. 175"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="FormPanel/MarginContainer/VBox/HBoxContainer2" unique_id=1938006754]
+layout_mode = 2
+
+[node name="GenderCaption" type="Label" parent="FormPanel/MarginContainer/VBox/HBoxContainer2/VBoxContainer3" unique_id=1453154756]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Kjonn"
+
+[node name="GenderOption" type="OptionButton" parent="FormPanel/MarginContainer/VBox/HBoxContainer2/VBoxContainer3" unique_id=1504884061]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+item_count = 3
+popup/item_0/text = "M"
+popup/item_0/id = 0
+popup/item_1/text = "F"
+popup/item_1/id = 1
+popup/item_2/text = "X"
+popup/item_2/id = 2
+
+[node name="PortraitCaption" type="Label" parent="FormPanel/MarginContainer/VBox" unique_id=872736820]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Tegn deg selv (fotoautomat ute av drift)"
+
+[node name="PortraitFrame" type="PanelContainer" parent="FormPanel/MarginContainer/VBox" unique_id=1870662978]
+custom_minimum_size = Vector2(140, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_portrait")
+
+[node name="PortraitBox" type="Control" parent="FormPanel/MarginContainer/VBox/PortraitFrame" unique_id=1833102268]
+custom_minimum_size = Vector2(140, 120)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="SignatureCaption" type="Label" parent="FormPanel/MarginContainer/VBox" unique_id=1266584459]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Signatur"
+
+[node name="SignatureFrame" type="PanelContainer" parent="FormPanel/MarginContainer/VBox" unique_id=364805320]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_portrait")
+
+[node name="SignatureBox" type="Control" parent="FormPanel/MarginContainer/VBox/SignatureFrame" unique_id=765062741]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ErrorLabel" type="Label" parent="FormPanel/MarginContainer/VBox" unique_id=1345793157]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="ButtonRow" type="HBoxContainer" parent="FormPanel/MarginContainer/VBox" unique_id=1371372059]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SubmitButton" type="Button" parent="FormPanel/MarginContainer/VBox/ButtonRow" unique_id=1614631792]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_submit")
+text = "Send inn"
+
+[node name="ClearButton" type="Button" parent="FormPanel/MarginContainer/VBox/ButtonRow" unique_id=1027253207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Slett tegning"
+
+[node name="CancelButton" type="Button" parent="FormPanel/MarginContainer/VBox/ButtonRow" unique_id=830088712]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_cancel")
+text = "Avbryt"
+
+[connection signal="draw" from="FormPanel/MarginContainer/VBox/PortraitFrame/PortraitBox" to="." method="_on_portrait_draw"]
+[connection signal="gui_input" from="FormPanel/MarginContainer/VBox/PortraitFrame/PortraitBox" to="." method="_on_portrait_gui_input"]
+[connection signal="mouse_exited" from="FormPanel/MarginContainer/VBox/PortraitFrame/PortraitBox" to="." method="_on_portrait_mouse_exited"]
+[connection signal="draw" from="FormPanel/MarginContainer/VBox/SignatureFrame/SignatureBox" to="." method="_on_sig_draw"]
+[connection signal="gui_input" from="FormPanel/MarginContainer/VBox/SignatureFrame/SignatureBox" to="." method="_on_sig_gui_input"]
+[connection signal="mouse_exited" from="FormPanel/MarginContainer/VBox/SignatureFrame/SignatureBox" to="." method="_on_sig_mouse_exited"]

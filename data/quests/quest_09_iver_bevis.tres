@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://cok2deqhh1grl"]
+
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="1"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="2"]
+
+[sub_resource type="Resource" id="Resource_b7ymj"]
+script = ExtResource("1")
+objective_id = "collect_fugleskinn"
+description = "Samle 3 kråkefjær på Elgveien"
+target_id = "fugleskinn"
+target_amount = 3
+
+[sub_resource type="Resource" id="Resource_lksmv"]
+script = ExtResource("1")
+objective_id = "collect_elgskinn"
+description = "Skyt en elg på Elgveien"
+target_id = "elgskinn"
+
+[sub_resource type="Resource" id="Resource_doc81"]
+script = ExtResource("1")
+objective_id = "deliver_skins_to_iver"
+description = "Lever fjær og skinn til Iver"
+type = 1
+target_id = "iver"
+
+[resource]
+script = ExtResource("2")
+quest_id = "IVER_BEVIS"
+name = "SLAKT I GRUSENS NAVN"
+description = "Bevis noe for Iver."
+brief_description = "Skaff 3 kråkefjær og 1 elgskinn, og lever til Iver."
+objectives = [SubResource("Resource_b7ymj"), SubResource("Resource_lksmv"), SubResource("Resource_doc81")]
+reward_items = ["grus"]
+unlock_quests = ["STEINAR_GRUS"]
+offer_dialogue = ["Jeg har ikke sett deg før?", "Du ønsker å kjøpe grusen min sier du?", "Er du kompis av Stein og Steinar?", "Ja det er du, jeg ser det på det livløse trynet ditt.", "Jeg selger ikke grusen min til Stein og Steinar lenger.", "De sa jeg ikke kunne benke 120 kg. Noe som jeg klarer btw.", "Uansett, jeg er en rimelig fyr.", "Hvis du lover å ikke gi grusen min til grusbrødrene, signerer denne kontrakten, henter meg 3 kråkefjær og 1 elgskinn så skal jeg gi deg grusen min gratis!"]
+completion_dialogue = ["Takk for fjær og skinn, nå blir det suppe.", "Her har du grus som takk.", "Ikke gi det til Stein og Steinar."]

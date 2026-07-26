@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dt88b5lb70o40"]
+
+[ext_resource type="PackedScene" uid="uid://bqvi14p03gyte" path="res://assets/props/glb/falke/husv2/Hus3v2.glb" id="1"]
+[ext_resource type="Texture2D" uid="uid://bgmcfukwp358s" path="res://assets/props/glb/falke/husv2/HusHvitT.png" id="2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_51je3"]
+size = Vector3(6.8066406, 11.566406, 9.067648)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sprvo"]
+cull_mode = 2
+albedo_texture = ExtResource("2")
+texture_filter = 0
+
+[node name="Hus3" type="StaticBody3D" unique_id=844470960]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=283736921]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.72523355, 4.499564, -0.17007828)
+shape = SubResource("BoxShape3D_51je3")
+
+[node name="Hus3v2" parent="." unique_id=40147413 instance=ExtResource("1")]
+
+[node name="Hus3" parent="Hus3v2" index="0" unique_id=1329365001]
+material_override = SubResource("StandardMaterial3D_sprvo")
+
+[editable path="Hus3v2"]

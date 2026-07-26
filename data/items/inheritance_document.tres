@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Texture2D" uid="uid://c4pppwvqkbo46" path="res://assets/textures/icons/items/inheritance_document.png" id="1"]
+[ext_resource type="Script" uid="uid://d1ftbc4e4jc3p" path="res://scripts/resources/item_data.gd" id="2"]
+
+[resource]
+script = ExtResource("2")
+id = "inheritance_document"
+display_name = "Arvedokument"
+description = "Papirer som gir deg rett til arv."
+category = 2
+icon = ExtResource("1")
+stackable = false
+max_stack = 1

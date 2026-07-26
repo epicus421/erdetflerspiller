@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://c5d1ferh7740u" path="res://scenes/props/area_blocker.gd" id="1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blocker"]
+size = Vector3(4, 3, 1)
+
+[node name="AreaBlocker" type="StaticBody3D" unique_id=1794342401]
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1345580082]
+shape = SubResource("BoxShape3D_blocker")

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cdloc4w4wndq7"]
+
+[ext_resource type="Script" uid="uid://dm46uu6ybhwv6" path="res://scenes/minigames/iver_petisjon.gd" id="1"]
+
+[node name="IverContract" type="CanvasLayer" unique_id=136908626]
+process_mode = 3
+layer = 10
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1518083413]
+self_modulate = Color(1, 1, 1, 0.92)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Panel" unique_id=1685918036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin" unique_id=1599958765]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Panel/Margin/VBox" unique_id=228125496]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "KONTRAKT"
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="Label" parent="Panel/Margin/VBox" unique_id=1211383507]
+layout_mode = 2
+text = "Jeg, undertegnede, bekrefter herved at jeg ikke vil gi grus til Stein og Steinar.
+
+Grusen er til eget bruk, og jeg er innforstått med at Iver forbeholder seg retten til å trekke tilbake salget dersom grusen havner i gale hender.
+
+Jeg lover også å skaffe 3 kråkefjær og 1 elgskinn som betaling for grusen.
+
+Signatur:"
+autowrap_mode = 3
+
+[node name="SignatureCanvas" type="Control" parent="Panel/Margin/VBox" unique_id=83318936]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="ErrorLabel" type="Label" parent="Panel/Margin/VBox" unique_id=427608301]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.15, 0.15, 1)
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/Margin/VBox" unique_id=1240116191]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="ClearButton" type="Button" parent="Panel/Margin/VBox/Buttons" unique_id=42231974]
+layout_mode = 2
+text = "Tøm"
+
+[node name="SignButton" type="Button" parent="Panel/Margin/VBox/Buttons" unique_id=314175853]
+layout_mode = 2
+text = "Signer"

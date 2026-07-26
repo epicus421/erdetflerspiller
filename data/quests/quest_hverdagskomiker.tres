@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="1"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="2"]
+
+[sub_resource type="Resource" id="Resource_5shwe"]
+script = ExtResource("1")
+objective_id = "talk_to_hverdagskomiker"
+description = "Undersøk kontaktkraftverket"
+type = 1
+target_id = "hverdagskomiker"
+
+[sub_resource type="Resource" id="Resource_33d2p"]
+script = ExtResource("1")
+objective_id = "collect_kobber"
+description = "Snakk med ungen ved strømmasta"
+target_id = "kobber"
+
+[sub_resource type="Resource" id="Resource_1hju0"]
+script = ExtResource("1")
+objective_id = "collect_plast"
+description = "Fisk plast fra dammen"
+target_id = "plast"
+
+[sub_resource type="Resource" id="Resource_0wipx"]
+script = ExtResource("1")
+objective_id = "collect_gummi"
+description = "Finn bildekket i Kratergata"
+target_id = "gummi"
+
+[resource]
+script = ExtResource("2")
+quest_id = "HVERDAGSKOMIKER"
+name = "Ingen strøm"
+description = "Sjekk ut kraftverket"
+brief_description = "Sjekk ut kraftverket"
+objectives = [SubResource("Resource_5shwe"), SubResource("Resource_33d2p"), SubResource("Resource_1hju0"), SubResource("Resource_0wipx")]
+offer_dialogue = ["Ja, hei. Sikringen blåste.", "Æ treng kobberledning, plast og gummi.", "Finn det sjøl."]
+completion_dialogue = ["Godt jobba."]

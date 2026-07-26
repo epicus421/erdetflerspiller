@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bb7q56d7yglb5"]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dyffws1rjud4v" path="res://assets/props/character/steiner/steinar.tscn" id="2"]
+[ext_resource type="Resource" uid="uid://dshc6dbsvlgck" path="res://data/quests/quest_10_steinar_grus.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://di7brmitmfqpc" path="res://assets/props/glb/falke/Caps.glb" id="4"]
+
+[node name="Steinar" unique_id=1756847076 instance=ExtResource("1")]
+npc_id = "steinar"
+npc_name = "Steinar"
+npc_color = Color(0.5, 0.3, 0.1, 1)
+character_model = ExtResource("2")
+quests = [ExtResource("3")]
+idle_dialogue = ["Vi vil bli gRUSA.", "Ingen grus, ingen caps."]
+
+[node name="CapMesh" parent="." index="6" unique_id=317510860 instance=ExtResource("4")]
+transform = Transform3D(-0.031, 0, 0.002, 0, 0.19, 0, -0.002, 0, -0.031, 0, 1.8, 0)
+
+[node name="CapSpawnMarker" type="Marker3D" parent="." index="7" unique_id=838739399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0.55)

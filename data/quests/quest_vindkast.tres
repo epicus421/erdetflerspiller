@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://bee32c8vk85mp"]
+
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="1"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="2"]
+
+[sub_resource type="Resource" id="Resource_collect"]
+script = ExtResource("1")
+objective_id = "collect_plakater"
+description = "Samle alle Gard-plakater"
+target_id = "gard_plakat"
+target_amount = 10
+
+[sub_resource type="Resource" id="Resource_talk"]
+script = ExtResource("1")
+objective_id = "talk_to_vindkast"
+description = "Lever plakatene til vindkastet"
+type = 1
+target_id = "vindkast"
+
+[resource]
+script = ExtResource("2")
+quest_id = "VINDKAST_PLAKATER"
+name = "Ondsinnet vindkast"
+description = "Hjelp vindkastet."
+brief_description = "Hjelp vindkastet."
+objectives = [SubResource("Resource_collect"), SubResource("Resource_talk")]
+offer_dialogue = ["Pst, kan du gjøre meg en tjeneste?", "Det finnes noen plakater i byen her, ta og riv dem ned for mæ."]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ctkii8aivl17n"]
+
+[ext_resource type="PackedScene" uid="uid://cmqlv88xp71tw" path="res://addons/proton_scatter/demos/assets/models/dead_branch.glb" id="1"]
+[ext_resource type="Material" uid="uid://d01d0h08lqqn6" path="res://addons/proton_scatter/demos/assets/materials/m_trunk.tres" id="2"]
+
+[node name="dead_branch" unique_id=321567158 instance=ExtResource("1")]
+
+[node name="DeadBranch" parent="." index="0" unique_id=990380590]
+surface_material_override/0 = ExtResource("2")

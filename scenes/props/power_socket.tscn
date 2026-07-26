@@ -1,0 +1,92 @@
+[gd_scene format=4 uid="uid://bp8jcqrndwdja"]
+
+[ext_resource type="Script" uid="uid://d2huneewru1nc" path="res://scenes/props/power_socket.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://b3uxqrc3x4ssd" path="res://assets/sfx/erdetlyd/splice/electricburst.wav" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve8ve"]
+resource_name = "Material.003"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6f565"]
+_surfaces = [{
+"aabb": AABB(-1.1086456, -1, -1.1086457, 2.217291, 1, 2.217291),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgAFAAAABgABAAQABgADAAEABwAEAAAABwAGAAQAAAAFAAgAAAAIAAcACQADAAYAAgADAAkACQAGAAcAAgAKAAUACQAKAAIACAAFAAoABwALAAkABwAIAAsACQALAAoACAAKAAsA"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIC/p3lXP424Rr2neVe/AACAPwAAAAAAAIC/p3lXP424Rr2neVc/p3lXv424Rr2neVe/GeiNvwAAgL8a6I2/p3lXv424Rr2neVc/AACAvwAAAAAAAIA/GeiNvwAAgL8Y6I0/AACAPwAAAAAAAIA/GeiNPwAAgL8a6I2/GeiNPwAAgL8Y6I0/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dmyns"]
+resource_name = "kontakt_Plane"
+_surfaces = [{
+"aabb": AABB(-1.1086456, -1, -1.1086457, 2.217291, 1, 2.217291),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_ve8ve"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AACAvwAAAAAAAIC/p3lXP424Rr2neVe/AACAPwAAAAAAAIC/p3lXv424Rr2neVe/GeiNvwAAgL8Y6I0/GeiNPwAAgL8a6I2/GeiNPwAAgL8Y6I0/GeiNvwAAgL8a6I2/AACAPwAAAAAAAIC/GeiNvwAAgL8a6I2/AACAvwAAAAAAAIC/GeiNPwAAgL8a6I2/AACAvwAAAAAAAIA/GeiNPwAAgL8Y6I0/AACAPwAAAAAAAIA/GeiNvwAAgL8Y6I0/AACAPwAAAAAAAIA/GeiNPwAAgL8a6I2/AACAPwAAAAAAAIC/GeiNPwAAgL8Y6I0/AACAvwAAAAAAAIC/GeiNvwAAgL8Y6I0/AACAvwAAAAAAAIA/GeiNvwAAgL8a6I2/p3lXv424Rr2neVc/p3lXP424Rr2neVe/p3lXv424Rr2neVe/p3lXP424Rr2neVc/AACAPwAAAAAAAIA/p3lXv424Rr2neVc/AACAvwAAAAAAAIA/p3lXP424Rr2neVc/AACAPwAAAAAAAIC/p3lXP424Rr2neVc/AACAPwAAAAAAAIA/p3lXP424Rr2neVe/AACAvwAAAAAAAIA/p3lXv424Rr2neVe/AACAvwAAAAAAAIC/p3lXv424Rr2neVc/BZ4AAP///78FngAA////vwWeAAD///+/BZ4AAP///7//f///////v/9///////+//3///////7//f///////v/9/dHP///8//390c////z//f3Rz////P/9/dHP///8/c/MAAP///79z8wAA////v3PzAAD///+/c/MAAP///7+LDHRz////v4sMdHP///+/iwx0c////7+LDHRz////v3PzdHP///+/c/N0c////79z83Rz////v3PzdHP///+//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//fwYe////P/9/Bh7///8//38GHv///z//fwYe////PwWeBh7///+/BZ4GHv///78FngYe////vwWeBh7///+/+WEGHv///7/5YQYe////v/lhBh7///+/+WEGHv///78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6f565")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb7lq"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yb7lq"]
+size = Vector3(2.217291, 0.9001465, 2.217291)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_area"]
+radius = 1.5
+
+[node name="PowerSocket" type="StaticBody3D" unique_id=1266846762]
+script = ExtResource("1")
+
+[node name="kontakthull" type="MeshInstance3D" parent="." unique_id=1024952035]
+transform = Transform3D(-0.7058905, -9.059749e-08, 4.405886e-15, 0, -2.6226834e-08, -0.66753453, 1.06586505e-07, -0.6, 2.9178862e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_dmyns")
+
+[node name="CSGCylinder3D" type="CSGBox3D" parent="kontakthull" unique_id=1756178480]
+transform = Transform3D(-1.4433755, -2.5165966e-07, 0.83333325, -2.1794365e-07, 1.6666665, 1.2582983e-07, -0.83333325, 0, -1.4433755, -0.3567399, -0.22288008, -0.0047810925)
+size = Vector3(0.16, 0.25, 0.16)
+material = SubResource("StandardMaterial3D_yb7lq")
+
+[node name="CSGCylinder3D2" type="CSGBox3D" parent="kontakthull" unique_id=1345559217]
+transform = Transform3D(-1.4433755, -2.5165966e-07, 0.83333325, -2.1794365e-07, 1.6666665, 1.2582983e-07, -0.83333325, 0, -1.4433755, 0.35666665, -0.22333325, -0.0049999896)
+size = Vector3(0.16, 0.25, 0.16)
+material = SubResource("StandardMaterial3D_yb7lq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=249961851]
+transform = Transform3D(-0.6, -9.059749e-08, 3.960142e-15, 0, -2.6226834e-08, -0.6, 9.059749e-08, -0.6, 2.6226834e-08, 4.9821985e-08, 8.594841e-08, 0.32995605)
+shape = SubResource("BoxShape3D_yb7lq")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=466515983]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1637410538]
+shape = SubResource("SphereShape3D_area")
+
+[node name="PromptLabel3D" type="Label3D" parent="." unique_id=842738764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+billboard = 1
+font_size = 22
+
+[node name="ElectricSound" type="AudioStreamPlayer3D" parent="." unique_id=75793612]
+stream = ExtResource("2")
+
+[node name="PlugSound" type="AudioStreamPlayer3D" parent="." unique_id=501549818]
+stream = ExtResource("2")
+
+[node name="kontakt" type="Node3D" parent="." unique_id=1687247610]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cojoo2c73fpsb"]
+
+[node name="HSplitContainer" type="HSplitContainer" unique_id=19010255]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(250)
+split_offset = 250
+
+[node name="Tree" type="Tree" parent="." unique_id=1268576365]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=906095704]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center] [b] [i] Documentation page [/i] [/b] [/center]"

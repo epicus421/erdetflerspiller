@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://2qdklqfrhgs3"]
+
+[ext_resource type="Script" uid="uid://bnhfyt5sl8jcd" path="res://addons/fpstemplate/Weapons/Scripts/WeaponResourcesScript.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+weaponName = "Knyttneve"
+weapon_scene = null
+equipSound = null
+unequipSound = null
+shootSound = null
+reloadSound = null
+ammoType = "none"
+nbProjShotsAtSameTime = 1
+damageDropoff = null
+timeBetweenShots = 999.0
+hasToReload = false
+autoReload = false
+projRef = null
+muzzleFlashRef = null

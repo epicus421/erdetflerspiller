@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://5uijijneg20g"]
+
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="1"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="2"]
+
+[sub_resource type="Resource" id="Resource_monxj"]
+script = ExtResource("1")
+objective_id = "find_hat"
+description = "Snakk med Stein og Steinar i garasjen ved Kratergata"
+target_id = "peak_performance_lua"
+
+[sub_resource type="Resource" id="Resource_pmy6r"]
+script = ExtResource("1")
+objective_id = "return_lua_to_kris"
+description = "Gi Kristoffer capsen sin"
+type = 1
+target_id = "kris"
+
+[resource]
+script = ExtResource("2")
+quest_id = "KRIS_LUA"
+name = "Capsen til Kristoffer"
+description = "Snakk med Grusbrødrene"
+brief_description = "Snakk med Grusbrødrene"
+required_quest_ids = ["BANK_DEPOSIT"]
+objectives = [SubResource("Resource_monxj"), SubResource("Resource_pmy6r")]
+reward_money = 150
+offer_dialogue = ["Jeg hørte noen rykter fra en liten fugl at du har behov for litt penger.", "De forbanna steinene tok capsen min...", "Den uvurderlige Peak Performance-capsen min.", "Få tilbake capsen min, så lover jeg at du skal få en liten slant for arbeidet.", "Om ikke jeg tar feil, sitter de nok i garasjen sin inneklemt i et av Kratergatas mange ekle hjørner."]
+completion_dialogue = ["Tusen takk for at du fant den!"]

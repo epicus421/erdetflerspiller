@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dphjaqqm522ws"]
+
+[ext_resource type="Script" uid="uid://y0c0i6e3hvxv" path="res://scenes/props/item_world_pickup.gd" id="1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pickup"]
+radius = 1.0
+
+[node name="KobberPickup" type="Area3D" unique_id=725265928]
+script = ExtResource("1")
+item_id = "kobber"
+display_label = "kobberledning"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280946258]
+shape = SubResource("SphereShape3D_pickup")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1725507558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08709055, 0, 0)
+size = Vector3(1.017, 0.15, 1)

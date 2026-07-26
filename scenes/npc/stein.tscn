@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c8steinnpc001"]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://b4rpv1jq8gvqh" path="res://assets/props/character/steiner/stein.tscn" id="2"]
+[ext_resource type="AudioStream" uid="uid://b3uxqrc3x4ssd" path="res://assets/sfx/erdetlyd/splice/electricburst.wav" id="3"]
+
+[node name="Stein" unique_id=1341657833 instance=ExtResource("1")]
+npc_id = "stein"
+npc_name = "Stein"
+npc_color = Color(0.4, 0.3, 0.15, 1)
+character_model = ExtResource("2")
+idle_dialogue = ["Steinar bestemmer.", "Grus."]
+inhale_sound = ExtResource("3")

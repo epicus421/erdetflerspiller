@@ -1,0 +1,85 @@
+[gd_scene format=4 uid="uid://ca6ah0k6mha6e"]
+
+[ext_resource type="Script" uid="uid://bfv856cspkca8" path="res://scenes/props/veiskilt.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bus7x1wvfhfcg" path="res://assets/props/glb/falke/GateSkilt_GateSkilt.png" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qksjb"]
+resource_name = "GateSkilt"
+cull_mode = 2
+albedo_texture = ExtResource("2")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_krebv"]
+_surfaces = [{
+"aabb": AABB(-5.082105, 0.00016736984, -0.3258787, 10.130569, 19.195053, 0.6517574),
+"format": 34896613377,
+"index_count": 156,
+"index_data": PackedByteArray("EAABABEAEgARAAEAEAAEAAEABAASAAEADQAEABAACgANABAADQAPAAQACgAQAAAAAAAQABEACAAKAAAADwATAAQABAATABIADwAOABMACAAAABQACQAIABQAFAAAAAIAAAARAAIACQAUAAYACwAJAAYAFAACABUABgAUABUAFgACABEAFgAVAAIAEgAWABEABgAVAAUACwAGABcAFwAGAAUADAALABcAGAAFABUAGAAVABYAFwAFABgAAwAWABIAAwAYABYAEwADABIABwAXABgADAAXAAcABwAYAAMAEwAHAAMADgAMAAcADgAHABMAGQAaABsAGQAcABoAHQAbABoAHAAdABoAHgAZABsAHAAZAB4AHQAfABsAHgAbAB8AHAAgAB0AHAAeACAAIAAfAB0AIAAeAB8A"),
+"lods": [5.1942835, PackedByteArray("AAABAAIAAwACAAEABAADAAEAAAAEAAEAAwAFAAIABgACAAUABgAAAAIABwAFAAMABwAGAAUABAAHAAMACAAAAAYACQAIAAYACAAKAAAACwAJAAYACwAGAAcADAALAAcACgANAAAADQAEAAAADgAMAAcADgAHAAQADQAPAAQADwAOAAQA")],
+"name": "GateSkilt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 33,
+"vertex_data": PackedByteArray("+3ovntrhAAD7eorhJB4AAPt6iuHa4QAA3YWK4SQeAAD7ei+eJB4AAN2FiuHa4QAA3YUvntrhAADdhS+eJB4AAGyAAAD//wAA3YUAANrhAAD7egAA2uEAADSIAAD/fwAA3YUAACQeAACkeAAA/38AAGyAAAAAAAAA+3oAACQeAACkeC+e/38AAKR4iuH/fwAAbICK4QAAAABsgC+eAAAAAGyAL57//wAAbICK4f//AABsgIrh/38AADSIL57/fwAANIiK4f9/AAAAAFPhII8AAAAA//82dAAAAAD//yCPAAAAAFPhNnQAAP////82dAAA//9T4SCPAAD/////II8AAP//U+E2dAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mwve8"]
+resource_name = "GateSkilt_GateSkilt"
+_surfaces = [{
+"aabb": AABB(-5.082105, 0.00016736984, -0.3258787, 10.130569, 19.195053, 0.6517574),
+"attribute_data": PackedByteArray("5QWyOrIeTO/lBUzvsh6yOn43sjoITUzvfjdM7whNsjqyHrI6fjdM77IeTO9+N7I6CE2yOpFiTO8ITUzvkWKyOrdbNn+jTISpFCh8nCg3L3IUNTsnsD47JxQ1T/tMSE/7TEg7J0xIOyfoUTsnTEhP+4NbT/uDWzsnmgg7J7kTOyeaCE/71x5P+9ceOyfXHjsn9ik7J9ceT/sUNU/7FDU7J5UQsjqVEEzv5UCyOuVATO9hKbI6YSlM725WsjpuVkzvwksvcsIniITmQdmNCTiEqQpcK5ewPk/76FFP+7kTT/v2KU/7XiqvmTktffleKn35OS2vmTktr5kTMH35OS19+RMwr5mDJ335qCSBXYMngV2oJH35Xip9+YMngV1eKoFdgyd9+dzvY2LifYIj3O+CI+J9Y2Lc735i4n2dI9zvnSPifX5i"),
+"format": 34896613399,
+"index_count": 156,
+"index_data": PackedByteArray("KAABACkAKAADAAEAAAAoACkAAAApAAIAKgAFACsAKgAHAAUABAAqACsABAArAAYALAAJAC0ALAALAAkACAAsAC0ACAAtAAoALgANAC8ALgAPAA0ADAAuAC8ADAAvAA4AMAAxABMAMAAyADEAMgASADEAEAAyADAAMgAzABIAEAA0ADIANAAzADIANAARADMAFAA1ABYAFAAVADUAFQAXADUAFQAYABcAGQA2ABsAGQAaADYAGgAcADYAGgAdABwAHgA3ACAAHgAfADcAHwAhADcAHwAiACEAIwA4ACUAIwAkADgAJAAmADgAJAAnACYAOQA6ADsAOQA8ADoAPQA+AD8APQBAAD4AQQBCAEMAQQBEAEIARQBGAEcARQBIAEYASQBKAEsASQBMAEoATQBOAE8ATQBQAE4A"),
+"lods": [5.1942835, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAASABMAFAAVABYAFQAXABYAFQAYABcAGQAaABsAGgAcABsAGgAdABwAHgAfACAAHwAhACAAHwAiACEAIwAkACUAJAAmACUAJAAnACYA")],
+"material": SubResource("StandardMaterial3D_qksjb"),
+"name": "GateSkilt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 81,
+"vertex_data": PackedByteArray("+3ovntrh///7eorhJB4/6/t6iuHa4abr+3ovniQe///7ei+eJB7//92FiuEkHpzi+3qK4SQenOLdhS+eJB7//92FL54kHv//3YWK4drhpuvdhYrhJB4/692FL57a4f//3YUvntrh///7eorh2uHq/92FiuHa4er/+3ovntrh///dhYrhJB6Z292FiuHa4fCn+3qK4drh1q77eorhJB6c4vt6AAAkHv//bIAAAAAA///7ei+eJB7//92FL54kHv//3YUAACQe///dhQAA2uH//2yAAAD/////3YUvntrh///7ei+e2uH///t6AADa4f//+3oAANrh//+keAAA/3////t6L57a4f//+3ovniQe///7egAAJB7//92FAAAkHv//NIgAAP9////dhS+eJB7//92FL57a4f//3YUAANrh//+keC+e/3///6R4iuH/f1LsbIAvngAA//9sgIrhAADD4zSIL57/f///NIiK4f9/UuxsgC+e/////2yAiuH/////bICK4QAA8uOkeIrh/38+0WyAiuH/fy7BbICK4f//nJ00iIrh/39hwWyAL54AAP//bIAvnv////+keC+e/3///zSIL57/f///AABT4SCPqukAAP//NnSq6QAA//8gj6rpAABT4TZ0qun//1PhNnSq6f////8gj6rp/////zZ0qun//1PhII+q6QAAU+E2dKrp//9T4SCP/MX//1PhNnT8xQAAU+Egj6rp/////zZ0/MUAAP//II+q6QAA//82dKrp/////yCP/MUAAFPhNnT///////82dP//AAD//zZ0/////1PhNnT/////U+EgjwCAAAD//yCPAID/////II8AgAAAU+EgjwCAw1r/f8vqq0hz6gQi//87pf//O6WB3hqA4/+BXsLa/3/C2v9/BKKKlarIM5U7pf9/O6X/f8ziyhnJmTKdw1r/f7vSMGUNxN1DGuXzweP/gV7//zul////f///O6XC2v9/wtr/fzul/3//f/9/O6X/f8Na/3/DWv9/w1r/f/8//3/DWv9///87pf//O6XC2v9//7//f8La/387pf9/O6X/f/8//3+A7EA2////f////3//v/9/QLZ9k/9//3//f/OhhPMDb/XyabqN7xxf5PXmWa+9fEz///9//3//f/8//3//v/9/+koJagjqBDUI6gQ1+koJavYV+soEtfWVBLX1lfYV+sr6SglqAGP+OQBj/jn6Sglq/bn/HAjqBDUI6gQ1/bn/HP9//v//f////3/+//9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_krebv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmxte"]
+resource_name = "GateSkilt"
+cull_mode = 2
+albedo_texture = ExtResource("2")
+roughness = 0.5
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_om2hl"]
+size = Vector3(0.165, 4, 0.165)
+
+[node name="Veiskilt2" type="Node3D" unique_id=251995184]
+transform = Transform3D(1.3311836e-07, 0, -1.0000002, 0, 1, 0, 1.0000002, 0, 1.3311836e-07, 0, 0, 0)
+script = ExtResource("1")
+
+[node name="GateSkilt2" type="Node3D" parent="." unique_id=43039352]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="GateSkilt" type="MeshInstance3D" parent="GateSkilt2" unique_id=272475163]
+mesh = SubResource("ArrayMesh_mwve8")
+surface_material_override/0 = SubResource("StandardMaterial3D_rmxte")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=525084907]
+transform = Transform3D(0.9, 0, -1.4210855e-14, 0, 0.9, 0, 1.4210855e-14, 0, 0.9, 0.003479004, 3.6343331, 0.017288208)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "erdethovedgata"
+font_size = 44
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1635821336]
+transform = Transform3D(-0.9, 0, 7.868051e-08, 0, 0.9, 0, -7.868051e-08, 0, -0.9, 0.003479004, 3.6343331, -0.037704468)
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "erdethovedgata"
+font_size = 44
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=279637790]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=355794038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.767456, 0)
+shape = SubResource("BoxShape3D_om2hl")

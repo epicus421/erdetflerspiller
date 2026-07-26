@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cb7h6jfpqdcsa"]
+
+[ext_resource type="Script" uid="uid://cdh1u3xdifi8o" path="res://scenes/Enemies/melee_enemy.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dn71dyben68oe" path="res://addons/fpstemplate/Weapons/Resources/RocketLauncherWeaponResources.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bx0r6k7lysfrc" path="res://assets/props/character/animal/low_poly_crow.glb" id="3"]
+[ext_resource type="Script" uid="uid://dqjjf8pcurpdl" path="res://addons/3dEnemyToolkit/FollowTarget.gd" id="4"]
+[ext_resource type="Script" uid="uid://bwxw5fxeqf38i" path="res://addons/3dEnemyToolkit/RandomTarget3D.gd" id="5"]
+[ext_resource type="Script" uid="uid://cen74ogojn8ue" path="res://components/health_component.gd" id="6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ck8vg"]
+radius = 0.6
+height = 1.362207
+
+[sub_resource type="Animation" id="Animation_umcef"]
+resource_name = "fall"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63nje"]
+_data = {
+&"fall": SubResource("Animation_umcef")
+}
+
+[node name="MeleeEnemy" type="CharacterBody3D" unique_id=1286410062]
+collision_layer = 32
+collision_mask = 31
+floor_stop_on_slope = false
+floor_max_angle = 1.0471976
+floor_snap_length = 0.4
+script = ExtResource("1")
+walkSpeed = 4.0
+runSpeed = 7.0
+attack_range = 2.6
+attack_cooldown = 0.7
+enemy_weapon = ExtResource("2")
+melee_knockback = 10.0
+melee_damage = 15.0
+ragdoll_lifetime = 5.0
+melee_color = Color(0, 0.8060001, 0.93, 1)
+projectile_color = Color(1, 0, 0, 1)
+attacking_color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=380478262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07159567, 0)
+shape = SubResource("CapsuleShape3D_ck8vg")
+
+[node name="CrowGlbModel" parent="." unique_id=563904275 instance=ExtResource("3")]
+transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, 0, 0)
+
+[node name="FollowTarget3D" type="NavigationAgent3D" parent="." unique_id=2085256439]
+script = ExtResource("4")
+
+[node name="RandomTarget3D" type="Node3D" parent="." unique_id=647806612]
+script = ExtResource("5")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=653480361]
+script = ExtResource("6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1629924607]
+libraries/ = SubResource("AnimationLibrary_63nje")
+
+[node name="WeaponSlot" type="Node3D" parent="." unique_id=1582057923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42037052, -1.0292735)
+
+[connection signal="navigation_finished" from="FollowTarget3D" to="." method="_on_follow_target_3d_navigation_finished"]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="1"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="2"]
+
+[sub_resource type="Resource" id="Resource_v448f"]
+script = ExtResource("1")
+objective_id = "buy_second_icecream"
+description = "Kjøp den siste isen"
+type = 7
+target_id = "icecream"
+
+[resource]
+script = ExtResource("2")
+quest_id = "SECOND_ICECREAM"
+name = "Én is til"
+description = "Kjøp den siste isen til bestefar"
+brief_description = "Du vet hva du må gjøre."
+required_quest_ids = ["BANK_DEPOSIT"]
+objectives = [SubResource("Resource_v448f")]
+unlock_quests = ["FINAL_DELIVERY"]

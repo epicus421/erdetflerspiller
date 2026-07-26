@@ -1,0 +1,239 @@
+[gd_scene format=3 uid="uid://helpmenu01"]
+
+[ext_resource type="Script" uid="uid://bfcf55dh56i6v" path="res://scenes/ui/help_menu.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.1, 0.1, 0.12, 0.97)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HelpMenu" type="CanvasLayer" unique_id=1579654122]
+process_mode = 3
+layer = 90
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=82834201]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=864854099]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1463842954]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1408257487]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1137445075]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "KONTROLLER"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1057728986]
+layout_mode = 2
+
+[node name="ControlsGrid" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=987687952]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="KeyWASD" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1214546649]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "WASD"
+
+[node name="ActionWASD" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1685254944]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Beveg deg"
+
+[node name="KeyShift" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1276712402]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Shift"
+
+[node name="ActionShift" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1688976523]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Løp"
+
+[node name="KeyCtrl" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=842081197]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Ctrl"
+
+[node name="ActionCtrl" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1764120464]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Huk deg"
+
+[node name="KeySpace" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1311595180]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Mellomrom"
+
+[node name="ActionSpace" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=2123876647]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Hopp"
+
+[node name="KeyMouse" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1189209242]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Mus"
+
+[node name="ActionMouse" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=2017462959]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Se deg rundt"
+
+[node name="KeyE" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=9712969]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "E"
+
+[node name="ActionE" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=834354927]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Interager / snakk"
+
+[node name="KeyTab" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1373687713]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Q"
+
+[node name="ActionTab" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=228781453]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Inventar"
+
+[node name="KeyCarry" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1116375210]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "F"
+
+[node name="ActionCarry" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=600893942]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Plukk opp"
+
+[node name="KeyF" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1116375209]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "V"
+
+[node name="ActionF" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=600893941]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Lommelykt"
+
+[node name="KeyM" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=275667882]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "M"
+
+[node name="ActionM" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1546194704]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Kart"
+
+[node name="KeyH" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=817158996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "H"
+
+[node name="ActionH" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1823254444]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Hjelp (denne menyen)"
+
+[node name="KeyEsc" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1993467429]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "ESC"
+
+[node name="ActionEsc" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=687435452]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Pause"
+
+[node name="KeyLMB" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1974185046]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Venstre klikk"
+
+[node name="ActionLMB" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1148608009]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Skyt"
+
+[node name="KeyRMB" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=441881255]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Høyre klikk"
+
+[node name="ActionRMB" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1351825428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Mys med øya"
+
+[node name="KeyScroll" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=585522829]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Skroll / Z / X"
+
+[node name="ActionScroll" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=135323039]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Bytt våpen"
+
+[node name="KeyR" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=2143650384]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "R"
+
+[node name="ActionR" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=1755836274]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Lad om"
+
+[node name="KeyC" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=446775496]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "C"
+
+[node name="ActionC" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ControlsGrid" unique_id=145226355]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Bytt håndtegn"
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1033737756]
+layout_mode = 2
+
+[node name="CloseHint" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=2136195357]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "Trykk H for å lukke"
+horizontal_alignment = 1

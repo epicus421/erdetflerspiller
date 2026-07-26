@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bbgtdcxu3djbh" path="res://scenes/props/dialogue_trigger.gd" id="1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_trigger"]
+radius = 2.0
+
+[node name="DialogueTrigger" type="Node3D" unique_id=2021844086]
+script = ExtResource("1")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=976713199]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1979773244]
+shape = SubResource("SphereShape3D_trigger")
+
+[node name="PromptLabel3D" type="Label3D" parent="." unique_id=2602988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+billboard = 1
+no_depth_test = true
+text = "E — Undersøk"

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bvindkastnpc1"]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="Script" uid="uid://djggl6dp7niu3" path="res://scenes/npc/vindkast.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://csiht67lbety1" path="res://scenes/npc/ondvindkastmodelscaled.tscn" id="3"]
+[ext_resource type="Resource" uid="uid://bee32c8vk85mp" path="res://data/quests/quest_vindkast.tres" id="4"]
+
+[node name="Vindkast" unique_id=1140326017 instance=ExtResource("1")]
+script = ExtResource("2")
+npc_color = Color(0.75, 0.9, 1, 0.7)
+character_model = ExtResource("3")
+quests = [ExtResource("4")]
+
+[node name="Model" parent="." index="0" unique_id=839054707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5811122, 0)

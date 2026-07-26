@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Texture2D" uid="uid://l112c86tbrgc" path="res://assets/textures/icons/items/plast.png" id="1"]
+[ext_resource type="Script" uid="uid://d1ftbc4e4jc3p" path="res://scripts/resources/item_data.gd" id="2"]
+
+[resource]
+script = ExtResource("2")
+id = "plast"
+display_name = "Plast"
+description = "Plast fra fiske."
+category = 2
+icon = ExtResource("1")
+max_stack = 10

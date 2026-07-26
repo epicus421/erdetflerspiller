@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b4ted6l27vuyd"]
+
+[ext_resource type="PackedScene" uid="uid://d1d1fag0m04yc" path="res://addons/proton_scatter/demos/assets/models/brick.glb" id="1"]
+[ext_resource type="Texture2D" uid="uid://dqa2jfs1jy0hq" path="res://addons/proton_scatter/demos/assets/textures/t_rock.jpg" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwvh2"]
+albedo_color = Color(0.678431, 0.596078, 0.466667, 1)
+albedo_texture = ExtResource("2")
+uv1_scale = Vector3(0.75, 0.75, 0.75)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rrnn"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="brick" unique_id=547824485 instance=ExtResource("1")]
+
+[node name="Cube" parent="." index="0" unique_id=1832948664]
+material_override = SubResource("StandardMaterial3D_nwvh2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=485102247]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1484362167]
+shape = SubResource("BoxShape3D_0rrnn")

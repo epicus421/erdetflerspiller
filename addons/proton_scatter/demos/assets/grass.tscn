@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c3c76je2y6vfj"]
+
+[ext_resource type="PackedScene" uid="uid://018flajgtx7t" path="res://addons/proton_scatter/demos/assets/models/grass.glb" id="1"]
+
+[node name="grass" unique_id=1627977801 instance=ExtResource("1")]

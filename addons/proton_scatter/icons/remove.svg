@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: visioncortex VTracer 0.6.4 -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+<path d="M0,0 L12,0 L12,8 L11,8 L11,9 L10,9 L10,10 L2,10 L2,9 L1,9 L1,8 L0,8 Z M1,2 L1,8 L3,8 L3,2 Z M5,2 L5,8 L7,8 L7,2 Z M9,2 L9,8 L11,8 L11,2 Z " fill="#E0E0E0" transform="translate(2,5)"/>
+<path d="M0,0 L6,0 L6,1 L10,1 L10,3 L-4,3 L-4,1 L0,1 Z " fill="#E0E0E0" transform="translate(5,1)"/>
+<path d="M0,0 L1,0 L1,1 L0,1 Z M1,1 L2,1 L2,2 L1,2 Z " fill="#E0E0E0" transform="translate(2,12)"/>
+<path d="M0,0 L1,0 L1,1 L0,1 Z M-1,1 L0,1 L0,2 L-1,2 Z " fill="#E0E0E0" opacity="0.88235295" transform="translate(13,13)"/>
+<path d="M0,0 L1,0 L1,1 L0,1 Z " fill="#E0E0E0" opacity="0.8862745" transform="translate(3,14)"/>
+<path d="M0,0 L1,0 L1,1 L0,1 Z " fill="#E2E2E2" opacity="0.27450982" transform="translate(13,14)"/>
+<path d="M0,0 L1,0 L1,1 L0,1 Z " fill="#E0E0E0" opacity="0.28627452" transform="translate(2,14)"/>
+<path d="M0,0 L1,0 L1,1 L0,1 Z " fill="#E0E0E0" opacity="0.8901961" transform="translate(2,13)"/>
+</svg>

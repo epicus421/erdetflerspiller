@@ -1,0 +1,23 @@
+extends Node
+
+class_name State
+
+
+@warning_ignore("unused_signal")
+signal transitioned
+
+func enter(_charReference: CharacterBody3D):
+
+	pass
+
+func exit():
+
+	pass
+
+func update(_delta: float):
+
+	pass
+
+func physics_update(_delta: float):
+
+	pass

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://kjectlpfrg35"]
+
+[ext_resource type="Script" uid="uid://de73qwyvos4ke" path="res://addons/fpstemplate/Weapons/Scripts/EnemyWeaponView.gd" id="1"]
+
+[node name="AssaultRifleEnemyView" type="Node3D" unique_id=1303893109]
+script = ExtResource("1")

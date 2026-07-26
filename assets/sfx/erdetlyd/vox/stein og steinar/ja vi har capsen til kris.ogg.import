@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://krs6g5t73ikr"
+path="res://.godot/imported/ja vi har capsen til kris.ogg-58aaea32723b80e64f078612ab1a1d21.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/ja vi har capsen til kris.ogg"
+dest_files=["res://.godot/imported/ja vi har capsen til kris.ogg-58aaea32723b80e64f078612ab1a1d21.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://j42d6dl8qkaj"]
+
+[ext_resource type="PackedScene" uid="uid://x8oniabn746q" path="res://addons/fpstemplate/Weapons/Scenes/MuzzleFlashParticleScene.tscn" id="1"]
+[ext_resource type="AudioStream" uid="uid://dyb1so1tu4g1" path="res://assets/sfx/erdetlyd/splice/rpgreload.wav" id="2"]
+[ext_resource type="Script" uid="uid://bnhfyt5sl8jcd" path="res://addons/fpstemplate/Weapons/Scripts/WeaponResourcesScript.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://mmv4kvrqnj07" path="res://assets/sfx/erdetlyd/splice/gunshot_placeholder.wav" id="4"]
+[ext_resource type="PackedScene" uid="uid://bheldpistolwm" path="res://addons/fpstemplate/Weapons/Scenes/held/PistolHeld.tscn" id="5"]
+
+[sub_resource type="Curve" id="Curve_eo1mu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.097493, 1), 0.0, 0.0, 0, 0, Vector2(0.643454, 0.0704225), 0.0, 0.0, 0, 0, Vector2(1, 0.0492958), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[resource]
+script = ExtResource("3")
+weaponName = "Pistol"
+weaponId = 1
+weapon_scene = ExtResource("5")
+type = 1
+animBlendTime = 0.2
+equipAnimName = "EquipAnimPistol"
+unequipAnimName = "UnequipAnimPistol"
+shootAnimName = "ShootAnimPistol"
+reloadAnimName = "ReloadAnimPistol"
+shootSound = ExtResource("4")
+reloadSound = ExtResource("2")
+totalAmmoInMag = 17
+totalAmmoInMagRef = 17
+ammoType = "pistol_ammo"
+equipTime = 0.2
+unequipTime = 0.2
+canAutoShoot = true
+nbProjShotsAtSameTime = 1
+nbProjShots = 1
+minSpread = -0.01
+maxSpread = 0.01
+maxRange = 200.0
+damagePerProj = 22.0
+damageDropoff = SubResource("Curve_eo1mu")
+headshotDamageMult = 2.0
+timeBetweenShots = 0.19
+reloadTimePerPart = 1.1
+baseRotSpeed = 7.0
+targetRotSpeed = 8.0
+recoilVal = Vector3(0.04, 0.012, 0)
+position = Array[Vector3]([Vector3(0.20047, -0.153444, -0.150842), Vector3(0, 3.142, 0)])
+tiltRotSpeed = 8.0
+tiltRotAmount = 0.3
+minSwayVal = Vector2(-20, -20)
+maxSwayVal = Vector2(20, 20)
+swaySpeedPos = 0.1
+swaySpeedRot = 0.1
+swayAmountPos = 0.2
+swayAmountRot = 28.0
+bobFreq = 0.008
+bobAmount = 0.018
+bobSpeed = 10.0
+onIdleBobFreqDivider = 2.0
+muzzleFlashRef = ExtResource("1")
+showMuzzleFlash = true

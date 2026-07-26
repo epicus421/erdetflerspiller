@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://duhwv1dy2jet4"]
+
+[ext_resource type="PackedScene" uid="uid://x8oniabn746q" path="res://addons/fpstemplate/Weapons/Scenes/MuzzleFlashParticleScene.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cc18e3sjw53cr" path="res://addons/fpstemplate/Weapons/Scenes/GrusScene.tscn" id="2"]
+[ext_resource type="Script" uid="uid://bnhfyt5sl8jcd" path="res://addons/fpstemplate/Weapons/Scripts/WeaponResourcesScript.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://cc473rxgvt4qf" path="res://assets/sfx/erdetlyd/splice/throwingsfx.wav" id="4"]
+[ext_resource type="PackedScene" uid="uid://g6mb7r3mpg5" path="res://addons/fpstemplate/Weapons/Scenes/viewmodels/GrusSkiveEnemyView.tscn" id="5"]
+
+[sub_resource type="Curve" id="Curve_8j8ql"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.97266513, 0.028797984), 0.40115994, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("3")
+weaponName = "GrusSkive"
+weaponId = 6
+weapon_scene = ExtResource("5")
+type = 2
+animBlendTime = 0.2
+equipAnimName = "EquipAnimGrusSkive"
+unequipAnimName = "UnequipAnimGrusSkive"
+shootAnimName = "ShootAnimGrusSkive"
+reloadAnimName = "ReloadAnimGrusSkive"
+reloadAnimSpeed = 0.65
+shootSound = ExtResource("4")
+totalAmmoInMagRef = 6
+ammoType = "grus_ammo"
+equipTime = 0.2
+unequipTime = 0.2
+nbProjShotsAtSameTime = 1
+nbProjShots = 1
+damagePerProj = 9.0
+damageDropoff = SubResource("Curve_8j8ql")
+timeBetweenShots = 0.25
+reloadTimePerPart = 1.7
+baseRotSpeed = 3.0
+targetRotSpeed = 6.5
+recoilVal = Vector3(0.19, 0.03, 0)
+projRef = ExtResource("2")
+projMoveSpeed = 25.0
+projTimeBeforeVanish = 10.0
+position = Array[Vector3]([Vector3(0.177288, -0.268151, -0.15469), Vector3(0, 3.14159, 0)])
+tiltRotSpeed = 7.0
+tiltRotAmount = 0.2
+minSwayVal = Vector2(-20, -20)
+maxSwayVal = Vector2(20, 20)
+swaySpeedPos = 0.1
+swaySpeedRot = 0.1
+swayAmountPos = 0.2
+swayAmountRot = 48.0
+bobFreq = 0.01
+bobAmount = 0.025
+bobSpeed = 10.0
+onIdleBobFreqDivider = 1.2
+muzzleFlashRef = ExtResource("1")

@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://b3xsh2lwcu4hs"]
+
+[ext_resource type="FontFile" uid="uid://bwr73i28ligrq" path="res://addons/fpstemplate/Arts/Fonts/Ticketing.ttf" id="1"]
+
+[resource]
+default_font = ExtResource("1")
+default_font_size = 16
+Button/fonts/font = ExtResource("1")
+Label/fonts/font = ExtResource("1")
+LineEdit/fonts/font = ExtResource("1")
+RichTextLabel/fonts/normal_font = ExtResource("1")

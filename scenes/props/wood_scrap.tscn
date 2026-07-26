@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bjpsmu7eis86v"]
+
+[ext_resource type="Script" uid="uid://vcgpl5772lk7" path="res://scenes/props/wood_scrap.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://yedytbmuxq6u" path="res://assets/textures/general/plank.png" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wood_scrap"]
+albedo_texture = ExtResource("2")
+uv1_scale = Vector3(0.315, 0.315, 0.315)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_wood_scrap"]
+size = Vector3(1, 0.08, 0.17)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wood_scrap"]
+size = Vector3(1.0231934, 0.12207031, 0.23730469)
+
+[node name="wood_scrap" type="RigidBody3D" unique_id=1911652754]
+script = ExtResource("1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=612342912]
+transform = Transform3D(1, 0, 0, 0, 1.1306932, 0, 0, 0, 1.173137, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_wood_scrap")
+mesh = SubResource("BoxMesh_wood_scrap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=93271785]
+shape = SubResource("BoxShape3D_wood_scrap")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b325mvfja2v0p"]
+
+[ext_resource type="Script" uid="uid://suf5bieluadh" path="res://scenes/minigames/gorgon_horror.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://1wcwldeg3npm" path="res://assets/sfx/erdetlyd/musikk/creepyambience.ogg" id="2"]
+
+[node name="GorgonHorror" type="Node3D" unique_id=1575448079]
+script = ExtResource("1")
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=463703]
+
+[node name="ExitPoint" type="Marker3D" parent="." unique_id=1284193322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="AmbientAudio" type="AudioStreamPlayer" parent="." unique_id=420415108]
+stream = ExtResource("2")
+volume_db = -7.198
+pitch_scale = 0.52
+bus = &"Ambience"
+
+[node name="ScareAudio" type="AudioStreamPlayer3D" parent="." unique_id=790675098]
+max_distance = 40.0
+bus = &"Sfx"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dyamg6oswgkqd"
+path="res://.godot/imported/sjekk ut den fete capsen til steinar a.ogg-a464de983770124bcbde60b6b1f83c3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/sjekk ut den fete capsen til steinar a.ogg"
+dest_files=["res://.godot/imported/sjekk ut den fete capsen til steinar a.ogg-a464de983770124bcbde60b6b1f83c3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

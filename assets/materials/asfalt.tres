@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://0dd5cc0tmie7"]
+
+[ext_resource type="Texture2D" uid="uid://du4mi7y0o12dj" path="res://assets/textures/general/seamless-asphalt-texture-roadway-grey-background-pattern-with-closeup-details_477306-504-2998501354.jpg" id="1"]
+
+[resource]
+albedo_texture = ExtResource("1")
+uv1_scale = Vector3(0.235, 0.235, 0.235)
+uv1_triplanar = true
+texture_filter = 0

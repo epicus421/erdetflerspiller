@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8ivernpc001"]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="Resource" uid="uid://dwf7jv1jm4b64" path="res://data/quests/quest_09_iver_bevis.tres" id="2"]
+
+[node name="Iver" unique_id=1680908281 instance=ExtResource("1")]
+npc_id = "iver"
+npc_name = "Iver"
+npc_color = Color(0.35, 0.55, 0.3, 1)
+quests = [ExtResource("2")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://duam0sr6ko16d"
+path="res://.godot/imported/vi vil gruse oss ikke selge til oss fordi saaret.ogg-0eae6cb96d5d54ba75ceb4d266afede0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/vi vil gruse oss ikke selge til oss fordi saaret.ogg"
+dest_files=["res://.godot/imported/vi vil gruse oss ikke selge til oss fordi saaret.ogg-0eae6cb96d5d54ba75ceb4d266afede0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

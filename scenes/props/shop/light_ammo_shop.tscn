@@ -1,0 +1,81 @@
+[gd_scene format=4 uid="uid://bpkodqo14t1th"]
+
+[ext_resource type="Script" uid="uid://d4ng2bnd70tbl" path="res://scenes/props/shop/shop_item.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dj3rjwbxsvx0m" path="res://assets/textures/general/ammotexture2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c7e3qwv6igey8" path="res://assets/props/glb/sokrates/ammo_ammotexture.png" id="3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4rpx"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("2")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbs36"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("3")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bpu34"]
+_surfaces = [{
+"aabb": AABB(-0.43780506, -0.14696962, -0.24234116, 0.8756101, 0.29393923, 0.48468232),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mjdew"]
+resource_name = "ammo_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.43780506, -0.14696962, -0.24234116, 0.8756101, 0.29393923, 0.48468232),
+"attribute_data": PackedByteArray("IvrlBi3XiUAt1+UGIvqJQP36zUQA2DIBANjNRP36MgEJvWD/6/wMc+v8YP8JvQxzgvl3B3zWiEJi0rYHm/1JQlehgUxVDIyRVQyBTFehjJELoOaicwCY6XMAZqQLoBjo"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_lbs36"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP//gMAAAP////+AwP///////4DAAAAAAP//gMAAAAAAAAD/////AAD///////8AAAAA//8AAAAA//////////8AAP+/AAD//////78AAP//AAD/v/////////+/VFWpqlRVqapUVaqqVFWpqv8//7//P/+//z//v/8//7+qKqoqqiqqKqoqqiqqKqoq/3//f/9//3//f/9//3//f/9//z//f/8//3//P/9//z96/sGAev7BgHr+wYB6/sGA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bpu34")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ojgd"]
+size = Vector3(0.6838379, 0.44907618, 1.1005859)
+
+[node name="LightAmmoShopItem" type="RigidBody3D" unique_id=78618880]
+mass = 0.3
+script = ExtResource("1")
+item_id = "light_ammo"
+display_name = "Lett ammunisjon"
+price = 25
+ammo_type = "pistol_ammo"
+ammo_amount = 30
+
+[node name="ammo" type="MeshInstance3D" parent="." unique_id=2034538087]
+transform = Transform3D(-1.6646629e-08, 0, 0.42951733, 0, 0.475, 0, -0.38083053, 0, -1.8774797e-08, 0.0011923183, 0, 0.013104081)
+material_override = SubResource("StandardMaterial3D_q4rpx")
+mesh = SubResource("ArrayMesh_mjdew")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=605123680]
+transform = Transform3D(-0.29999998, 0, -2.6226832e-08, 0, 0.29999998, 0, 2.6226832e-08, 0, -0.29999998, 0.0016029608, -0.0022614282, 0.01217369)
+shape = SubResource("BoxShape3D_2ojgd")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=358336464]
+transform = Transform3D(4.2618602e-08, 0.325, 1.4206201e-08, 0, -1.4206201e-08, 0.325, 0.325, -4.2618602e-08, -1.8629185e-15, -0.00044837035, 0.0766729, -0.11678231)
+shaded = true
+text = "erdet™
+småkuler"
+font_size = 30
+outline_size = 0
+horizontal_alignment = 0

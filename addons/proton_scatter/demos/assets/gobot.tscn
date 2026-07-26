@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bmglbfn5jaubp"]
+
+[ext_resource type="PackedScene" uid="uid://d3f4d3m7n8tpr" path="res://addons/proton_scatter/demos/assets/models/gobot.glb" id="1"]
+
+[node name="gobot" unique_id=561179343 instance=ExtResource("1")]

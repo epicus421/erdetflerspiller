@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "Graffiti"
+transparency = 1
+cull_mode = 2
+specular_mode = 1
+texture_filter = 0

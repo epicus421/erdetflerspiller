@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://e4643i3m2jrd"
+path="res://.godot/imported/steinar bestemmer.ogg-a9c5d6a186b51bad25e4c029fe66e34f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/steinar bestemmer.ogg"
+dest_files=["res://.godot/imported/steinar bestemmer.ogg-a9c5d6a186b51bad25e4c029fe66e34f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dgh1kycr3ntes"]
+
+[ext_resource type="Script" uid="uid://c7bc8sq52b763" path="res://scenes/minigames/tictactoe.gd" id="1"]
+
+[node name="TicTacToe" type="CanvasLayer" unique_id=1885290150]
+process_mode = 3
+layer = 50
+script = ExtResource("1")

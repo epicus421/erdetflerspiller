@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b08dtel8qqwvb"]
+
+[ext_resource type="Script" uid="uid://cfdoka4wg80l5" path="res://scenes/npc/rabbit_npc.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://doyct5i72qror" path="res://assets/textures/images/rabbit.png" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/npc/health_component_instance.tscn" id="3"]
+[ext_resource type="Script" uid="uid://dxf2u04rctmb2" path="res://scenes/npc/rabbit_hitbox.gd" id="4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hitbox"]
+size = Vector3(0.5, 0.6, 0.5)
+
+[node name="RabbitNPC" type="Node3D" unique_id=1057143653]
+script = ExtResource("1")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=907219236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+pixel_size = 0.003
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2")
+
+[node name="HealthComponent" parent="." unique_id=2098895261 instance=ExtResource("3")]
+max_health = 5.0
+
+[node name="HitboxCollision" type="Area3D" parent="." unique_id=2004657650]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("4")
+
+[node name="HitboxShape" type="CollisionShape3D" parent="HitboxCollision" unique_id=750057851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_hitbox")

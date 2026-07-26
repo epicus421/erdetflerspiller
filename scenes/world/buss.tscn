@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://lce1fkpfxucy"]
+
+[ext_resource type="PackedScene" uid="uid://2y8bepdcfild" path="res://assets/props/glb/falke/BussHvit.glb" id="1"]
+[ext_resource type="AudioStream" uid="uid://c8soxlo66fgcl" path="res://assets/sfx/erdetlyd/splice/Engine_Hum_Car.ogg" id="2"]
+[ext_resource type="AudioStream" uid="uid://bajf4h0g35gjv" path="res://assets/sfx/erdetlyd/splice/CarHornHonk_BW.62180.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://cfuhd5sml5pxk" path="res://assets/sfx/erdetlyd/splice/tiresqueal.ogg" id="4"]
+[ext_resource type="PackedScene" uid="uid://mdrrg5bpknt" path="res://assets/props/glb/falke/RusseBussHjul.glb" id="5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uliu6"]
+size = Vector3(24.138672, 27.689398, 112.129715)
+
+[node name="Buss" type="CharacterBody3D" unique_id=81837566]
+
+[node name="BussHvit2" parent="." unique_id=1651306728 instance=ExtResource("1")]
+transform = Transform3D(-0.16, 0, 1.3987644e-08, 0, 0.16, 0, -1.3987644e-08, 0, -0.16, 0, 0.69, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2034493377]
+transform = Transform3D(-0.16, 0, 1.3987645e-08, 0, 0.16, 0, -1.3987645e-08, 0, -0.16, 0.06832528, 2.8550527, 0.13775337)
+shape = SubResource("BoxShape3D_uliu6")
+
+[node name="PedestrianSpawner" type="Marker3D" parent="." unique_id=457278645]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.3594623, 1.1076779, -5.618015)
+
+[node name="EngineSfx" type="AudioStreamPlayer3D" parent="." unique_id=2034811372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2246208, -6.1955595)
+stream = ExtResource("2")
+volume_db = -8.275
+unit_size = 27.75
+autoplay = true
+max_distance = 106.69
+bus = &"Sfx"
+
+[node name="HonkSfx" type="AudioStreamPlayer3D" parent="." unique_id=568374399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4298826, -9.481492)
+stream = ExtResource("3")
+volume_db = -3.373
+unit_size = 11.71
+max_distance = 150.0
+bus = &"Sfx"
+
+[node name="TireSquealSfx" type="AudioStreamPlayer3D" parent="." unique_id=1872598441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4428897, -2.273829)
+stream = ExtResource("4")
+volume_db = -16.386
+unit_size = 16.82
+max_distance = 120.0
+bus = &"Sfx"
+
+[node name="RusseBussHjul" parent="." unique_id=1926462724 instance=ExtResource("5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.155, 0, 0, 0, 0.175, 1.7662072, 0.91954124, 4.98895)
+
+[node name="RusseBussHjul2" parent="." unique_id=1699670468 instance=ExtResource("5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.155, 0, 0, 0, 0.175, 1.7662072, 0.91954124, -5.600502)
+
+[node name="RusseBussHjul3" parent="." unique_id=351549 instance=ExtResource("5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.155, 0, 0, 0, 0.175, -1.7781582, 0.91954124, 4.98895)
+
+[node name="RusseBussHjul4" parent="." unique_id=1986078615 instance=ExtResource("5")]
+transform = Transform3D(0.2, 0, 0, 0, 0.155, 0, 0, 0, 0.175, -1.7781582, 0.91954124, -5.600502)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1908783972]
+transform = Transform3D(1, 0, 0, 0, 0.9989152, 0.04656599, 0, -0.04656599, 0.9989152, -1.401063, 1.3393924, -8.686011)
+light_color = Color(0.7437586, 0.8901133, 0.81179416, 1)
+light_energy = 2.5
+spot_range = 40.0
+spot_angle = 30.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=943058340]
+transform = Transform3D(1, 0, 0, 0, 0.9989152, 0.04656599, 0, -0.04656599, 0.9989152, 1.4104881, 1.3393924, -8.686011)
+light_color = Color(0.7437586, 0.8901133, 0.81179416, 1)
+light_energy = 2.5
+spot_range = 40.0
+spot_angle = 30.0

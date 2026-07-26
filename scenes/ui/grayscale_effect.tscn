@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://73vk643sovdv" path="res://scenes/ui/grayscale_effect.gd" id="1"]
+
+[node name="GrayscaleEffect" type="CanvasLayer" unique_id=896478092]
+process_mode = 3
+layer = 98
+script = ExtResource("1")

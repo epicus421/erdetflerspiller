@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" uid="uid://bxg4kmbfw2vti" path="res://assets/sfx/erdetlyd/musikk/idle.ogg" id="1"]
+[ext_resource type="Script" uid="uid://cwcjsr11onlx7" path="res://scenes/props/local_music_source.gd" id="2"]
+
+[node name="KjiwiSpeaker" type="AudioStreamPlayer3D" unique_id=1881920499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+stream = ExtResource("1")
+unit_size = 4.0
+max_distance = 20.0
+script = ExtResource("2")
+music_file = "res://assets/sfx/erdetlyd/musikk/i drink soda i eat pizza.ogg"
+fade_radius = 14.0
+start_on_store_enter = true

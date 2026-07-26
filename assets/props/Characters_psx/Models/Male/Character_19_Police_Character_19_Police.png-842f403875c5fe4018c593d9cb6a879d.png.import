@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cwg6oko2sajc0"
+path.s3tc="res://.godot/imported/Character_19_Police_Character_19_Police.png-842f403875c5fe4018c593d9cb6a879d.png-de2305a36c823a8741a4007de645e6b3.s3tc.ctex"
+path.etc2="res://.godot/imported/Character_19_Police_Character_19_Police.png-842f403875c5fe4018c593d9cb6a879d.png-de2305a36c823a8741a4007de645e6b3.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "07e1702ba6c3aac7e3cccf4830eabe43"
+}
+
+[deps]
+
+source_file="res://assets/props/Characters_psx/Models/Male/Character_19_Police_Character_19_Police.png-842f403875c5fe4018c593d9cb6a879d.png"
+dest_files=["res://.godot/imported/Character_19_Police_Character_19_Police.png-842f403875c5fe4018c593d9cb6a879d.png-de2305a36c823a8741a4007de645e6b3.s3tc.ctex", "res://.godot/imported/Character_19_Police_Character_19_Police.png-842f403875c5fe4018c593d9cb6a879d.png-de2305a36c823a8741a4007de645e6b3.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

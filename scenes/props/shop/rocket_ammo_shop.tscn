@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://csawawioik55n"]
+
+[ext_resource type="Script" uid="uid://d4ng2bnd70tbl" path="res://scenes/props/shop/shop_item.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://8rode3436amq" path="res://assets/weapons/models/rpg7_rocket.glb" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="mat"]
+albedo_color = Color(0.10620285, 0.01843144, 0.0046876282, 1)
+
+[sub_resource type="BoxMesh" id="mesh"]
+material = SubResource("mat")
+size = Vector3(0.385, 0.26, 0.305)
+
+[sub_resource type="BoxShape3D" id="shape"]
+size = Vector3(0.4814453, 0.078125, 0.2961035)
+
+[node name="RocketAmmoShopItem" type="RigidBody3D" unique_id=542330547]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+mass = 0.5
+script = ExtResource("1")
+item_id = "rocket_ammo"
+display_name = "Rakettammunisjon"
+price = 50
+ammo_type = "rocket_ammo"
+ammo_amount = 3
+
+[node name="rpg7_rocket" parent="." unique_id=300405975 instance=ExtResource("2")]
+transform = Transform3D(-1.1802075e-08, 0.27, 0, -0.27, -1.1802075e-08, 0, 0, 0, 0.27, -0.011096023, 0, 0)
+
+[node name="rpg7_rocket2" parent="." unique_id=1819393261 instance=ExtResource("2")]
+transform = Transform3D(-1.1802075e-08, 0.27, 0, -0.27, -1.1802075e-08, 0, 0, 0, 0.27, -0.011096023, 0, 0.1)
+
+[node name="rpg7_rocket3" parent="." unique_id=1752056270 instance=ExtResource("2")]
+transform = Transform3D(-1.1802075e-08, 0.27, 0, -0.27, -1.1802075e-08, 0, 0, 0, 0.27, -0.011096023, 0, -0.1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1627478134]
+transform = Transform3D(0.4499568, 0, 0, 0, 0.3961931, 0, 1.7763568e-15, 0, 1, -0.11469877, 0, -5.0136424e-09)
+mesh = SubResource("mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1692697538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025791142, 0, -0.0020556625)
+shape = SubResource("shape")

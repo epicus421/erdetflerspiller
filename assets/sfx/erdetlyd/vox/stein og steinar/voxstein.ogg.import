@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2vnk3wth7fee"
+path="res://.godot/imported/voxstein.ogg-71131fa69d62c45f802cd81673f68b78.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/voxstein.ogg"
+dest_files=["res://.godot/imported/voxstein.ogg-71131fa69d62c45f802cd81673f68b78.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

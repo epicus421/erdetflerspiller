@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Texture2D" uid="uid://d4l34uhjbldfp" path="res://assets/textures/icons/items/grus.png" id="1"]
+[ext_resource type="Script" uid="uid://d1ftbc4e4jc3p" path="res://scripts/resources/item_data.gd" id="2"]
+
+[resource]
+script = ExtResource("2")
+id = "grus"
+display_name = "Grus"
+description = "En pose grus. Lukter av asfalt."
+category = 2
+icon = ExtResource("1")
+stackable = false
+max_stack = 1

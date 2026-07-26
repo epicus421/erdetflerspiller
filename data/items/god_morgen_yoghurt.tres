@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Texture2D" uid="uid://0jccmg0cu308" path="res://assets/textures/icons/items/god_morgen_yoghurt.png" id="1"]
+[ext_resource type="Script" uid="uid://d1ftbc4e4jc3p" path="res://scripts/resources/item_data.gd" id="2"]
+
+[resource]
+script = ExtResource("2")
+id = "god_morgen_yoghurt"
+display_name = "God Morgen Yoghurt"
+description = "Starter dagen riktig. Helbreder litt."
+icon = ExtResource("1")
+max_stack = 5

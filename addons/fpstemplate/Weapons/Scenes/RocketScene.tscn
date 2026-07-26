@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://u4tj3ey6tjg8"]
+
+[ext_resource type="Script" uid="uid://bysswu6cmi0t4" path="res://addons/fpstemplate/Weapons/Scripts/ProjectileScript.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cfhj5cfqe2rkv" path="res://assets/sfx/erdetlyd/splice/mormorexplode.wav" id="2"]
+[ext_resource type="Texture2D" uid="uid://cm8240c4lqdpl" path="res://assets/weapons/models/rpg7_rocket_rockets rpg.jpg" id="3"]
+[ext_resource type="ArrayMesh" uid="uid://cltmdbtfsuw0y" path="res://assets/weapons/models/rpg7_rocket_Cylinder_002.res" id="4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jevsj"]
+bounce = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oi5ds"]
+radius = 0.0624222
+height = 0.686962
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7g40"]
+albedo_texture = ExtResource("3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r213f"]
+emission_shape_offset = Vector3(0, 0, -0.34)
+scale_min = 0.07
+scale_max = 0.19999999
+color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_6v41r"]
+
+[sub_resource type="Animation" id="Animation_t8c6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_r213f"]
+resource_name = "auto_light"
+length = 0.93333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.13333334, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.03333336, 0.90666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_umtsx"]
+_data = {
+&"RESET": SubResource("Animation_t8c6y"),
+&"auto_light": SubResource("Animation_r213f")
+}
+
+[node name="Rocket" type="RigidBody3D" unique_id=1198534523]
+collision_layer = 8
+collision_mask = 55
+physics_material_override = SubResource("PhysicsMaterial_jevsj")
+can_sleep = false
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 10.0
+script = ExtResource("1")
+explosionSound = ExtResource("2")
+
+[node name="Hitbox" type="CollisionShape3D" parent="." unique_id=1794295809]
+transform = Transform3D(1, 0, 0, 0, 0.01994783, -0.99980104, 0, 0.99980104, 0.01994783, 0.0035816, -0.00200154, 0.0138129)
+shape = SubResource("CapsuleShape3D_oi5ds")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=488526414]
+transform = Transform3D(0.47, 3.4974238e-14, -1.5287725e-21, 0, -2.0544352e-08, -0.47, -3.4974238e-14, 0.47, -2.0544352e-08, -1.2650915e-14, 7.4313222e-09, -0.15202782)
+material_override = SubResource("StandardMaterial3D_k7g40")
+mesh = ExtResource("4")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1830829566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1899834)
+amount = 30
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_r213f")
+draw_pass_1 = SubResource("QuadMesh_6v41r")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=900124369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7187277)
+light_color = Color(0.99999994, 0.88172466, 0.45089412, 1)
+omni_range = 7.733
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1177822150]
+libraries/ = SubResource("AnimationLibrary_umtsx")
+autoplay = &"auto_light"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

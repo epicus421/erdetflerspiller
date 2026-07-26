@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3l00354ftq2t"]
+
+[ext_resource type="PackedScene" uid="uid://cbxyrtbcoxqkq" path="res://assets/props/Characters_psx/Models/Male/Character_17_Police.glb" id="1"]
+[ext_resource type="Texture2D" uid="uid://chjkws1xna70j" path="res://assets/textures/Character_17_Police.png" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frt0k"]
+albedo_texture = ExtResource("2")
+texture_filter = 0
+
+[node name="politimodell" type="Node3D" unique_id=1524911402]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Character_17_Police" parent="." unique_id=803791699 instance=ExtResource("1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -1, 0)
+
+[node name="Character_17_Police" parent="Character_17_Police/Skeleton3D" parent_id_path=PackedInt32Array(803791699, 55529279) index="0" unique_id=395953497]
+material_override = SubResource("StandardMaterial3D_frt0k")
+
+[editable path="Character_17_Police"]

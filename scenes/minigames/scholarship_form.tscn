@@ -1,0 +1,407 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://bftlb52u3ouxn" path="res://scenes/minigames/scholarship_form.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://can75d0pxxkjj" path="res://assets/sfx/erdetlyd/splice/beep.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://bbsv6nh0fyc63" path="res://assets/sfx/erdetlyd/splice/ui_negative0.wav" id="3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.12, 0.12, 0.14, 0.97)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.2, 0.2, 0.22, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.4, 0.45, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_signature"]
+bg_color = Color(0.18, 0.18, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 0.4, 0.45, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_submit"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.2, 0.4, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_submit_hover"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25, 0.5, 0.25, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clear"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.22, 0.22, 0.24, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.38, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reject_dialog"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
+bg_color = Color(0.14, 0.1, 0.1, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.15, 0.15, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="ScholarshipFormMinigame" type="CanvasLayer" unique_id=166565612]
+layer = 25
+script = ExtResource("1")
+success_sound = ExtResource("2")
+fail_sound = ExtResource("2")
+approved_sound = ExtResource("2")
+rejected_sound = ExtResource("2")
+error_sound = ExtResource("3")
+
+[node name="DarkOverlay" type="ColorRect" parent="." unique_id=1761670228]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="FormPanel" type="PanelContainer" parent="." unique_id=1551905139]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -228.0
+offset_right = 300.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="RootVBox" type="VBoxContainer" parent="FormPanel" unique_id=1527234372]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderHBox" type="HBoxContainer" parent="FormPanel/RootVBox" unique_id=820257368]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="FormPanel/RootVBox/HeaderHBox" unique_id=63651347]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "STIPENDSØKNAD"
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="FormPanel/RootVBox/HeaderHBox" unique_id=1419671215]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.78, 1)
+theme_override_font_sizes/font_size = 14
+text = "Tid igjen: 0:45"
+horizontal_alignment = 2
+
+[node name="HeaderSep" type="HSeparator" parent="FormPanel/RootVBox" unique_id=1508165605]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FormPanel/RootVBox" unique_id=951189370]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="QuestionsVBox" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer" unique_id=1307827981]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Q1Box" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox" unique_id=77611062]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VBox" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q1Box" unique_id=379502204]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="QuestionLabel" type="Label" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q1Box/VBox" unique_id=1351152739]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 13
+text = "Spørsmål 1"
+autowrap_mode = 3
+
+[node name="Input" type="LineEdit" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q1Box/VBox" unique_id=1600807996]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+
+[node name="Q2Box" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox" unique_id=2035252199]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VBox" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q2Box" unique_id=658259651]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="QuestionLabel" type="Label" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q2Box/VBox" unique_id=31895696]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 13
+text = "Spørsmål 2"
+autowrap_mode = 3
+
+[node name="Input" type="LineEdit" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q2Box/VBox" unique_id=1345700587]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+
+[node name="Q3Box" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox" unique_id=1932505621]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VBox" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q3Box" unique_id=829179844]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="QuestionLabel" type="Label" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q3Box/VBox" unique_id=217267471]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 13
+text = "Spørsmål 3"
+autowrap_mode = 3
+
+[node name="Input" type="LineEdit" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q3Box/VBox" unique_id=965267165]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+
+[node name="Q4Box" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox" unique_id=1480377300]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VBox" type="VBoxContainer" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q4Box" unique_id=403782520]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="QuestionLabel" type="Label" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q4Box/VBox" unique_id=1554422015]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 13
+text = "Spørsmål 4"
+autowrap_mode = 3
+
+[node name="Input" type="LineEdit" parent="FormPanel/RootVBox/ScrollContainer/QuestionsVBox/Q4Box/VBox" unique_id=1048847464]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+
+[node name="MidSep" type="HSeparator" parent="FormPanel/RootVBox" unique_id=1045622223]
+layout_mode = 2
+
+[node name="SignatureLabel" type="Label" parent="FormPanel/RootVBox" unique_id=1891594955]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 13
+text = "Signatur:"
+
+[node name="SignatureFrame" type="PanelContainer" parent="FormPanel/RootVBox" unique_id=328010216]
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_signature")
+
+[node name="SignatureBox" type="Control" parent="FormPanel/RootVBox/SignatureFrame" unique_id=721946765]
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ErrorLabel" type="Label" parent="FormPanel/RootVBox" unique_id=215614393]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.35, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+
+[node name="FooterHBox" type="HBoxContainer" parent="FormPanel/RootVBox" unique_id=796001197]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SubmitButton" type="Button" parent="FormPanel/RootVBox/FooterHBox" unique_id=1805922591]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_submit")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_submit_hover")
+theme_override_styles/hover = SubResource("StyleBoxFlat_submit_hover")
+text = "Send inn søknad"
+
+[node name="ClearButton" type="Button" parent="FormPanel/RootVBox/FooterHBox" unique_id=1999390532]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_clear")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_clear")
+theme_override_styles/hover = SubResource("StyleBoxFlat_clear")
+text = "Tøm"
+
+[node name="StatusLabel" type="Label" parent="FormPanel/RootVBox" unique_id=725347662]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.72, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="RejectionOverlay" type="ColorRect" parent="FormPanel" unique_id=1917730214]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Dialog" type="PanelContainer" parent="FormPanel/RejectionOverlay" unique_id=1199870447]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_reject_dialog")
+
+[node name="Margin" type="MarginContainer" parent="FormPanel/RejectionOverlay/Dialog" unique_id=883530337]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="FormPanel/RejectionOverlay/Dialog/Margin" unique_id=956646762]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="FormPanel/RejectionOverlay/Dialog/Margin/VBox" unique_id=1895799617]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 18
+text = "SØKNADEN ER AVVIST"
+horizontal_alignment = 1
+
+[node name="ReasonLabel" type="Label" parent="FormPanel/RejectionOverlay/Dialog/Margin/VBox" unique_id=308762072]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ExtraLabel" type="Label" parent="FormPanel/RejectionOverlay/Dialog/Margin/VBox" unique_id=245868390]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.78, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="OkButton" type="Button" parent="FormPanel/RejectionOverlay/Dialog/Margin/VBox" unique_id=820532079]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "OK"
+
+[node name="SuccessAudio" type="AudioStreamPlayer" parent="." unique_id=1216201650]
+
+[node name="FailAudio" type="AudioStreamPlayer" parent="." unique_id=620317160]
+
+[node name="ResultOverlay" type="ColorRect" parent="." unique_id=1254994025]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="ResultLabel" type="Label" parent="ResultOverlay" unique_id=1979940918]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="draw" from="FormPanel/RootVBox/SignatureFrame/SignatureBox" to="." method="_on_signature_box_draw"]
+[connection signal="gui_input" from="FormPanel/RootVBox/SignatureFrame/SignatureBox" to="." method="_on_signature_box_gui_input"]
+[connection signal="mouse_exited" from="FormPanel/RootVBox/SignatureFrame/SignatureBox" to="." method="_on_signature_box_mouse_exited"]
+[connection signal="pressed" from="FormPanel/RootVBox/FooterHBox/SubmitButton" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="FormPanel/RootVBox/FooterHBox/ClearButton" to="." method="_on_clear_button_pressed"]
+[connection signal="pressed" from="FormPanel/RejectionOverlay/Dialog/Margin/VBox/OkButton" to="." method="_on_rejection_ok_button_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d3e1ou8jfsm43"]
+
+[ext_resource type="Script" uid="uid://de73qwyvos4ke" path="res://addons/fpstemplate/Weapons/Scripts/EnemyWeaponView.gd" id="1"]
+
+[node name="PistolEnemyView" type="Node3D" unique_id=108729525]
+script = ExtResource("1")

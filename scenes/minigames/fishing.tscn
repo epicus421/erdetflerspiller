@@ -1,0 +1,56 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://yip7iybpsh0b" path="res://scenes/minigames/fishing.gd" id="1"]
+[ext_resource type="Script" uid="uid://14n2rkpvd2x3" path="res://scenes/minigames/fishing_bar.gd" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.08, 0.1, 0.75)
+
+[node name="Fishing" type="CanvasLayer" unique_id=657231430]
+process_mode = 3
+layer = 12
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1386823251]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -80.0
+offset_right = 240.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=2146530613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="WaitLabel" type="Label" parent="Panel/VBox" unique_id=717840199]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Venter på fisk..."
+horizontal_alignment = 1
+
+[node name="FishingBar" type="Control" parent="Panel/VBox" unique_id=1879556444]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+script = ExtResource("2")
+
+[node name="PressLabel" type="Label" parent="Panel/VBox" unique_id=103797737]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Trykk E!"
+horizontal_alignment = 1

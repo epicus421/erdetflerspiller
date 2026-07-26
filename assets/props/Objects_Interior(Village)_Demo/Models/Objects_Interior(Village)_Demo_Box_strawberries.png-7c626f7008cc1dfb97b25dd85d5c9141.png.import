@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b5sx7ln2ynkso"
+path.s3tc="res://.godot/imported/Objects_Interior(Village)_Demo_Box_strawberries.png-7c626f7008cc1dfb97b25dd85d5c9141.png-73f47b2c0e7c1d77151ad6e86b7af92c.s3tc.ctex"
+path.etc2="res://.godot/imported/Objects_Interior(Village)_Demo_Box_strawberries.png-7c626f7008cc1dfb97b25dd85d5c9141.png-73f47b2c0e7c1d77151ad6e86b7af92c.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "71174deb22e81e8eb61d486156afd4c9"
+}
+
+[deps]
+
+source_file="res://assets/props/Objects_Interior(Village)_Demo/Models/Objects_Interior(Village)_Demo_Box_strawberries.png-7c626f7008cc1dfb97b25dd85d5c9141.png"
+dest_files=["res://.godot/imported/Objects_Interior(Village)_Demo_Box_strawberries.png-7c626f7008cc1dfb97b25dd85d5c9141.png-73f47b2c0e7c1d77151ad6e86b7af92c.s3tc.ctex", "res://.godot/imported/Objects_Interior(Village)_Demo_Box_strawberries.png-7c626f7008cc1dfb97b25dd85d5c9141.png-73f47b2c0e7c1d77151ad6e86b7af92c.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://dmdp4w5twoe7m"]
+
+[ext_resource type="Script" uid="uid://cbwqdlinedlg1" path="res://components/dialogue/dialogue_line.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cxsamghidspxa" path="res://assets/sfx/erdetlyd/vox/bestefar/q04_03.ogg" id="2"]
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://ugb5cbxtmdcm" path="res://assets/sfx/erdetlyd/vox/bestefar/q04_01.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://njtlsxhpxhcv" path="res://assets/sfx/erdetlyd/vox/bestefar/q04_02.ogg" id="5"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="6"]
+
+[sub_resource type="Resource" id="Resource_rjg2p"]
+script = ExtResource("1")
+text = "Ikke kom tilbake uten to is."
+sound = ExtResource("2")
+
+[sub_resource type="Resource" id="Resource_uxcr1"]
+script = ExtResource("3")
+objective_id = "talk_to_grandpa_again"
+description = "Lever en enslig is til bestefar"
+type = 1
+target_id = "grandpa"
+
+[sub_resource type="Resource" id="Resource_uka4c"]
+script = ExtResource("1")
+text = "Én is."
+sound = ExtResource("4")
+
+[sub_resource type="Resource" id="Resource_yhmii"]
+script = ExtResource("1")
+text = "§Jeg hadde bare nok til én is."
+sound = null
+
+[sub_resource type="Resource" id="Resource_fvcfr"]
+script = ExtResource("1")
+text = "Du er ung. Søk stipend hos Lånekassa."
+sound = ExtResource("5")
+
+[sub_resource type="Resource" id="Resource_k4abr"]
+script = ExtResource("1")
+text = "Ikke kom tilbake uten to is."
+sound = ExtResource("2")
+
+[resource]
+script = ExtResource("6")
+quest_id = "GRANDPA_DISAPPOINTMENT"
+name = "Tilbake til bestefar"
+description = "Lever det du har til bestefar."
+brief_description = "Lever det du har til bestefar."
+required_quest_ids = ["ECONOMIC_REALITY"]
+objectives = [SubResource("Resource_uxcr1")]
+unlock_quests = ["SCHOLARSHIP_APPLICATION"]
+offer_dialogue = ["Én is.", "§Jeg hadde bare nok til én is.", "Du er ung. Søk stipend hos Lånekassa.", "Ikke kom tilbake uten to is."]
+completion_dialogue = ["Ikke kom tilbake uten to is."]
+offer_lines = [SubResource("Resource_uka4c"), SubResource("Resource_yhmii"), SubResource("Resource_fvcfr"), SubResource("Resource_k4abr")]
+completion_lines = [SubResource("Resource_rjg2p")]

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cwvo73q44jifr"]
+
+[ext_resource type="Script" uid="uid://ch0im1h8ellic" path="res://scenes/props/streetlight_poster.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cgbtkutbq0nv4" path="res://assets/textures/gard_plakat.png" id="2"]
+[ext_resource type="Script" uid="uid://d4e531aw6kca6" path="res://scripts/scene_light.gd" id="3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gatmg"]
+albedo_texture = ExtResource("2")
+uv1_scale = Vector3(0.66, 0.79, 1)
+uv1_offset = Vector3(0.16, 0.115, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ebxbs"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_gatmg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ebxbs"]
+size = Vector3(1, 1, 0.007080078)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_poster_pickup"]
+radius = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_llc3e"]
+top_radius = 0.07
+bottom_radius = 0.12
+height = 4.2
+radial_segments = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2gbh"]
+albedo_color = Color(0.22, 0.22, 0.24, 1)
+metallic = 0.35
+roughness = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3nrk"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebxbs"]
+size = Vector3(0.15, 5.103108, 0.15)
+
+[node name="StreetlightPoster" type="StaticBody3D" unique_id=1042807785]
+script = ExtResource("1")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2124327733]
+
+[node name="Poster" type="MeshInstance3D" parent="Node3D" unique_id=849103409]
+transform = Transform3D(0.369, 0, 0, 0, 0.538652, 0.045665246, 0, -0.019365512, 1.2701794, 0, 1.6122674, 0.14538841)
+mesh = SubResource("QuadMesh_ebxbs")
+
+[node name="CSGBox3D" type="MeshInstance3D" parent="Node3D/Poster" unique_id=1068736634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0040283203)
+mesh = SubResource("BoxMesh_ebxbs")
+
+[node name="PosterInteraction" type="Area3D" parent="Node3D" unique_id=87520050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79464674, 0.24829102)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/PosterInteraction" unique_id=323307806]
+shape = SubResource("SphereShape3D_poster_pickup")
+
+[node name="Label3D" type="Label3D" parent="Node3D/PosterInteraction" unique_id=1734808525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4119358, 0.0886848)
+visible = false
+billboard = 1
+text = "E - Ta plakat"
+font_size = 22
+
+[node name="PoleMesh" type="MeshInstance3D" parent="." unique_id=670229418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("CylinderMesh_llc3e")
+surface_material_override/0 = SubResource("StandardMaterial3D_c2gbh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1383070073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.614746, 0)
+light_color = Color(1, 0.95, 0.8, 1)
+light_energy = 1.2
+omni_range = 13.472636
+script = ExtResource("3")
+
+[node name="StreetLampMesh" type="CSGSphere3D" parent="." unique_id=596044412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 0)
+cast_shadow = 0
+radial_segments = 10
+rings = 4
+smooth_faces = false
+material = SubResource("StandardMaterial3D_n3nrk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1592552805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3972008, 0)
+shape = SubResource("BoxShape3D_ebxbs")

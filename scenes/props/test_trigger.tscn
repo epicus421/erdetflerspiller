@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dw6dhjtf6layy"]
+
+[ext_resource type="Script" uid="uid://8t30codndctq" path="res://scenes/props/test_trigger.gd" id="1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_area"]
+size = Vector3(2, 2, 2)
+
+[node name="TestTrigger" type="Area3D" unique_id=1111020667]
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1175225734]
+shape = SubResource("BoxShape3D_area")
+
+[node name="MarkerMesh" type="MeshInstance3D" parent="." unique_id=1018093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

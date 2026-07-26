@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bheldpistolwm"]
+
+[ext_resource type="Script" uid="uid://b8j7syg0bknwp" path="res://addons/fpstemplate/Weapons/Scripts/PlayerWeaponHeldView.gd" id="1"]
+
+[node name="Pistol" type="Node3D" unique_id=1892560878]
+script = ExtResource("1")

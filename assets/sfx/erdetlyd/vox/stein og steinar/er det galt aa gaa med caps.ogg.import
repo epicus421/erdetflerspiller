@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5icjq2g7fgwn"
+path="res://.godot/imported/er det galt aa gaa med caps.ogg-7253195f35d518988bd9e45396717c2f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/er det galt aa gaa med caps.ogg"
+dest_files=["res://.godot/imported/er det galt aa gaa med caps.ogg-7253195f35d518988bd9e45396717c2f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

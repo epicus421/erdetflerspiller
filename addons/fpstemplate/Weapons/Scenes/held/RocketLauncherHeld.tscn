@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bheldrpgwm"]
+
+[ext_resource type="Script" uid="uid://b8j7syg0bknwp" path="res://addons/fpstemplate/Weapons/Scripts/PlayerWeaponHeldView.gd" id="1"]
+
+[node name="RocketLauncher" type="Node3D" unique_id=1105795968]
+script = ExtResource("1")

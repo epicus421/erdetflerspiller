@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2id3gkgslg16"
+path="res://.godot/imported/i drink soda i eat pizza.mp3-73d2422215f28fc0ee29c7ba511cbc34.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/musikk/i drink soda i eat pizza.mp3"
+dest_files=["res://.godot/imported/i drink soda i eat pizza.mp3-73d2422215f28fc0ee29c7ba511cbc34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

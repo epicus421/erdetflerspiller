@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dgypbjjajhql" path="res://scenes/npc/annoying_kid.gd" id="2"]
+
+[node name="AnnoyingKid" unique_id=1794490516 instance=ExtResource("1")]
+script = ExtResource("2")

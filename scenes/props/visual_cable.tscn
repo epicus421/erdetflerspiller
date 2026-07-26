@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://mftpa6hbxalg"]
+
+[ext_resource type="Script" uid="uid://d3x86gedmu8vl" path="res://scenes/props/visual_cable.gd" id="1"]
+
+[node name="VisualCable" type="Node3D" unique_id=292337970]
+script = ExtResource("1")

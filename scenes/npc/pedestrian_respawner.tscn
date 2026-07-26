@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://mh4tp22igx37" path="res://scenes/npc/pedestrian_respawner.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dt155g2mh01jx" path="res://scenes/npc/pedestrian_npc.tscn" id="2"]
+
+[node name="PedestrianRespawner" type="Node3D" unique_id=99915305]
+script = ExtResource("1")
+pedestrian_scene = ExtResource("2")

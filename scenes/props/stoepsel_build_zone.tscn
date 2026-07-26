@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://be8rx0qmkrwoc"]
+
+[ext_resource type="Script" uid="uid://denhsvrmnf5wo" path="res://scenes/props/stoepsel_build_zone.gd" id="1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_area"]
+radius = 2.0
+
+[node name="StoepselBuildZone" type="Node3D" unique_id=1851464866]
+script = ExtResource("1")
+
+[node name="PromptLabel3D" type="Label3D" parent="." unique_id=1876404208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2055607, 0)
+billboard = 1
+text = "🛠🔌"
+font_size = 40
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1648641583]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=980870952]
+shape = SubResource("SphereShape3D_area")

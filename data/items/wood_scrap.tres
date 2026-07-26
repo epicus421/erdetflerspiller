@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cndovu64gvsw5"]
+
+[ext_resource type="Script" uid="uid://d1ftbc4e4jc3p" path="res://scripts/resources/item_data.gd" id="1_item_data_script"]
+
+[resource]
+script = ExtResource("1_item_data_script")
+id = "wood_scrap"
+display_name = "Trebit"
+description = "Et stykke tre. Kanskje nyttig."
+max_stack = 10

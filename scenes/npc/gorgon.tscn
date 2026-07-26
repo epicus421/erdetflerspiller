@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cgorgonnpc01"]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="Script" uid="uid://dgorgongd01" path="res://scenes/npc/gorgon.gd" id="2"]
+
+[node name="Gorgon" unique_id=221347501 instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="ThrowOrigin" type="Marker3D" parent="." index="6" unique_id=1329754635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.75)

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b5bgh7coqk84y"]
+
+[ext_resource type="Script" path="res://scenes/props/tnt_pickup.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c84cbbsdwm8qn" path="res://assets/props/glb/falke/Dynamit.glb" id="2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_area"]
+radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="Mat_box"]
+albedo_color = Color(0.45, 0.25, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_box"]
+material = SubResource("Mat_box")
+size = Vector3(0.2, 0.12, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="Mat_dynamite"]
+albedo_color = Color(0.8, 0.15, 0.1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_stick"]
+material = SubResource("Mat_dynamite")
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.3
+
+[node name="TNTPickup" type="Area3D" unique_id=478140926]
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1076392039]
+shape = SubResource("SphereShape3D_area")
+
+[node name="TNTModel" type="Node3D" parent="." unique_id=1323354712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5211123, 0, 0)
+
+[node name="DetonatorBox" type="MeshInstance3D" parent="TNTModel" unique_id=1577219382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.06, 0)
+mesh = SubResource("BoxMesh_box")
+
+[node name="Plunger" type="MeshInstance3D" parent="TNTModel" unique_id=128532712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.2, 0)
+mesh = SubResource("CylinderMesh_stick")
+
+[node name="Handle" type="MeshInstance3D" parent="TNTModel" unique_id=48324887]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.25, 0.36, 0)
+mesh = SubResource("CylinderMesh_stick")
+
+[node name="Dynamit" parent="." unique_id=19579046 instance=ExtResource("2")]
+transform = Transform3D(0.1971917, 0, -0.10835328, 0, 0.225, 0, 0.10835328, 0, 0.1971917, 0, 0.23777798, 0)

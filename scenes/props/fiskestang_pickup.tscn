@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://141hmsv0gn42"]
+
+[ext_resource type="Script" path="res://scenes/props/tnt_pickup.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://qsbwnq6ycnrl" path="res://assets/props/glb/fishing_rod.glb" id="2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_area"]
+radius = 1.2
+
+[node name="FiskestangPickup" type="Area3D" unique_id=1214262233]
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=351108955]
+shape = SubResource("SphereShape3D_area")
+
+[node name="Sketchfab_Scene" parent="." unique_id=526465213 instance=ExtResource("2")]
+transform = Transform3D(9.228101e-05, 0.00081623043, -0.003914746, 0.00020454655, 0.0039097, 0.00082, 0.0039936984, -0.00021910429, 4.8458576e-05, 0.20586586, -0.27866995, -0.6209503)

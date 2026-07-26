@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bavkswlqwhssp"]
+
+[ext_resource type="Script" uid="uid://ds4ac8jm6fpf0" path="res://addons/3dEnemyToolkit/Example/example_player.gd" id="1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5egj7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2uanj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6wbqj"]
+
+[node name="ExamplePlayer" type="CharacterBody3D" unique_id=979800263 groups=["player"]]
+max_slides = 4
+floor_max_angle = 1.309
+floor_snap_length = 0.0
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1192694971]
+shape = SubResource("CapsuleShape3D_5egj7")
+
+[node name="Geometry" type="MeshInstance3D" parent="." unique_id=1932039065]
+mesh = SubResource("CapsuleMesh_2uanj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry" unique_id=1068706661]
+transform = Transform3D(0.778942, 0, 0, 0, -1.05042e-08, 0.550017, 0, -0.240309, -2.4042e-08, 0, 0.435177, -0.384868)
+mesh = SubResource("CylinderMesh_6wbqj")

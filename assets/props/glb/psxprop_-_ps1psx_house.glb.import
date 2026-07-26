@@ -1,0 +1,50 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cd47ok3i4n3sd"
+path="res://.godot/imported/psxprop_-_ps1psx_house.glb-85ce68eeb13874e4e650a9b26827f7f1.scn"
+
+[deps]
+
+source_file="res://assets/props/glb/psxprop_-_ps1psx_house.glb"
+dest_files=["res://.godot/imported/psxprop_-_ps1psx_house.glb-85ce68eeb13874e4e650a9b26827f7f1.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Sketchfab_Scene"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=false
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"meshes": {
+"Sketchfab_Scene_lowPHouse01_House01_0": {
+"generate/lightmap_uv": 0,
+"generate/lods": 1,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c3h5fww22jrmo"
+path="res://.godot/imported/simpleten elsker aa gruse oss.ogg-fa84e77814ec82a8a285b9c2aea00a94.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/simpleten elsker aa gruse oss.ogg"
+dest_files=["res://.godot/imported/simpleten elsker aa gruse oss.ogg-fa84e77814ec82a8a285b9c2aea00a94.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

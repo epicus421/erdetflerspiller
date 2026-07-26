@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://csr3xfllbbx65"]
+
+[ext_resource type="PackedScene" uid="uid://bqa56c3freguk" path="res://assets/props/glb/is.glb" id="1"]
+
+[node name="Node3D" type="Node3D" unique_id=1783323298]
+
+[node name="is" parent="." unique_id=1045682803 instance=ExtResource("1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1777747203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09020805, 9.385245)
+fov = 17.4
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=80264768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45104092, 2.616038)
+light_energy = 1.901
+omni_range = 22.929
+omni_attenuation = 0.718
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=70379542]

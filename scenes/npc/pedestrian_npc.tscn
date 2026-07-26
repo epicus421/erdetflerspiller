@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dt155g2mh01jx"]
+
+[ext_resource type="Script" uid="uid://dfxwrjg16jixh" path="res://scenes/npc/pedestrian_npc.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dp1hbf7qte8fa" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt0.ogg" id="2"]
+[ext_resource type="AudioStream" uid="uid://b55q0qoldpj2i" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt1.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://ci4a248kv5aed" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt2.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://bhans48lf6her" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt3.ogg" id="5"]
+[ext_resource type="AudioStream" uid="uid://cxn7q6gubgv4p" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt4.ogg" id="6"]
+[ext_resource type="AudioStream" uid="uid://bnjyie5rhd4rx" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt5.ogg" id="7"]
+[ext_resource type="AudioStream" uid="uid://co444t2f8sljo" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt6.ogg" id="8"]
+[ext_resource type="AudioStream" uid="uid://w15ttyqrd7np" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_hurt7.ogg" id="9"]
+[ext_resource type="AudioStream" uid="uid://8gnmoudvaplp" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle0.ogg" id="10"]
+[ext_resource type="AudioStream" uid="uid://bqtvaqy5odcbf" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle1.ogg" id="11"]
+[ext_resource type="AudioStream" uid="uid://bl8rw6gdjkwir" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle2.ogg" id="12"]
+[ext_resource type="AudioStream" uid="uid://qw7lhcqmgn6m" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle3.ogg" id="13"]
+[ext_resource type="AudioStream" uid="uid://biiqrtfue4reh" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle4.ogg" id="14"]
+[ext_resource type="AudioStream" uid="uid://buuvg7sjb84k0" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle5.ogg" id="15"]
+[ext_resource type="AudioStream" uid="uid://bb4w1yd8mjdtr" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_idle6.ogg" id="16"]
+[ext_resource type="AudioStream" uid="uid://cd83uqx7yk2nb" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_scream0.ogg" id="17"]
+[ext_resource type="AudioStream" uid="uid://d1860kn7usob2" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_scream1.ogg" id="18"]
+[ext_resource type="AudioStream" uid="uid://bkpfuge6k0hos" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_scream2.ogg" id="19"]
+[ext_resource type="AudioStream" uid="uid://wsfamcq85kts" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_scream3.ogg" id="20"]
+[ext_resource type="AudioStream" uid="uid://dx8kyrayrp8qk" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_scream4.ogg" id="21"]
+[ext_resource type="AudioStream" uid="uid://j34v57aembos" path="res://assets/sfx/erdetlyd/vox/pedestrian/ped_scream5.ogg" id="22"]
+[ext_resource type="PackedScene" uid="uid://dp2ubaf5t6a44" path="res://assets/props/Characters_psx/Models/Male/Character_07.glb" id="23"]
+[ext_resource type="Script" uid="uid://dqjjf8pcurpdl" path="res://addons/3dEnemyToolkit/FollowTarget.gd" id="24"]
+[ext_resource type="Script" uid="uid://bwxw5fxeqf38i" path="res://addons/3dEnemyToolkit/RandomTarget3D.gd" id="25"]
+[ext_resource type="Script" uid="uid://cen74ogojn8ue" path="res://components/health_component.gd" id="26"]
+[ext_resource type="AudioStream" uid="uid://cplyk8wlb74sg" path="res://assets/sfx/erdetlyd/splice/ESM_FG2_FX_combat_one_shot_blunt_fist_hit_thud_02.wav" id="27"]
+[ext_resource type="Script" uid="uid://r58cx8f8xayv" path="res://scenes/Enemies/moose_hurtbox.gd" id="28"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ped"]
+radius = 0.3334961
+height = 1.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ped"]
+size = Vector3(0.60732424, 1.8191773, 0.29345703)
+
+[node name="PedestrianNPC" type="CharacterBody3D" unique_id=1728921353]
+collision_layer = 32
+floor_stop_on_slope = false
+floor_max_angle = 1.0471976
+floor_snap_length = 0.4
+script = ExtResource("1")
+hurt_sounds = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")]
+idle_sounds = [ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16")]
+scream_sounds = [ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22")]
+death_cleanup_time = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=268677423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("CapsuleShape3D_ped")
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1293794239]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0, -0.021878093, -0.036043942)
+
+[node name="Character_07" parent="Geometry" unique_id=1449725878 instance=ExtResource("23")]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)
+
+[node name="FollowTarget3D" type="NavigationAgent3D" parent="." unique_id=865924156]
+script = ExtResource("24")
+
+[node name="RandomTarget3D" type="Node3D" parent="." unique_id=1201432864]
+script = ExtResource("25")
+MaxRadius = 14.0
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1962601519]
+script = ExtResource("26")
+max_health = 60.0
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1261847811]
+unit_size = 5.0
+max_distance = 22.0
+bus = &"Voice"
+
+[node name="ThudSFX" type="AudioStreamPlayer3D" parent="." unique_id=1261847812]
+stream = ExtResource("27")
+volume_db = -6.0
+unit_size = 8.0
+max_distance = 40.0
+bus = &"Sfx"
+
+[node name="HurtBox" type="Area3D" parent="." unique_id=129004568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("28")
+
+[node name="HitboxShape" type="CollisionShape3D" parent="HurtBox" unique_id=1558056568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018505871, -0.022015333, -0.029052734)
+shape = SubResource("BoxShape3D_ped")

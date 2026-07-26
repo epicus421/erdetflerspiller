@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://buvkr41v54k7v"]
+
+[ext_resource type="Script" uid="uid://ckojuxd7mgb5f" path="res://scenes/props/shop/security_turret.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://can75d0pxxkjj" path="res://assets/sfx/erdetlyd/splice/beep.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://b3uxqrc3x4ssd" path="res://assets/sfx/erdetlyd/splice/electricburst.wav" id="3"]
+[ext_resource type="PackedScene" uid="uid://b37cl74jln0kj" path="res://assets/weapons/models/PSX_Colt1911.glb" id="4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grey"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_turret"]
+size = Vector3(0.18, 0.18, 0.385)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ucov"]
+albedo_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pv1w8"]
+material = SubResource("StandardMaterial3D_7ucov")
+size = Vector3(0.14, 0.145, 0.09)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eoc68"]
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aced"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ucov"]
+size = Vector3(0.03, 0.03, 0.455)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vun4y"]
+albedo_color = Color(0.34781694, 0.34781697, 0.34781682, 1)
+
+[node name="SecurityTurret" type="Node3D" unique_id=432077486]
+script = ExtResource("1")
+alarm_sound = ExtResource("2")
+fire_sound = ExtResource("3")
+aim_height_offset = 0.665
+
+[node name="Swivel" type="Node3D" parent="." unique_id=888001000]
+
+[node name="TurretMesh" type="MeshInstance3D" parent="Swivel" unique_id=1925277352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.030187845, -0.115094066)
+material_override = SubResource("StandardMaterial3D_grey")
+mesh = SubResource("BoxMesh_turret")
+
+[node name="PSX_Colt1911" parent="Swivel" unique_id=1680016752 instance=ExtResource("4")]
+transform = Transform3D(-1.2669064, -0.08859072, -1.1102693e-07, -0.08859072, 1.2669064, 0, 1.1075647e-07, 7.7448465e-09, -1.27, 0.3313631, -0.06083929, -0.32987106)
+
+[node name="TurretMesh2" type="MeshInstance3D" parent="Swivel" unique_id=817620095]
+transform = Transform3D(0.695, 0, 0, 0, 0.695, 0, 0, 0, 0.695, 0, 0.030187845, -0.3079673)
+material_override = SubResource("StandardMaterial3D_7ucov")
+mesh = SubResource("BoxMesh_pv1w8")
+
+[node name="TurretMesh3" type="MeshInstance3D" parent="Swivel" unique_id=1453577443]
+transform = Transform3D(0.29516825, 0, 0, 0, 0.695, 0, 0, 0, 0.46849117, 0, 0.09869963, -0.21243995)
+material_override = SubResource("StandardMaterial3D_eoc68")
+mesh = SubResource("BoxMesh_pv1w8")
+
+[node name="AlarmLight" type="OmniLight3D" parent="Swivel" unique_id=2128435226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4165743, -0.39117464)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.0
+omni_range = 29.145
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Swivel" unique_id=754717303]
+transform = Transform3D(0.5586457, 0.24287304, -0.79304975, 0.09119695, 0.9323806, 0.34978506, 0.8243774, -0.26772958, 0.49872112, 0.16084681, -0.099042974, -0.06868839)
+material_override = SubResource("StandardMaterial3D_2aced")
+mesh = SubResource("BoxMesh_7ucov")
+
+[node name="AlarmAudio" type="AudioStreamPlayer" parent="." unique_id=892866492]
+process_mode = 3
+
+[node name="FireAudio" type="AudioStreamPlayer" parent="." unique_id=406225804]
+process_mode = 3
+volume_db = -6.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1769675354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5463867, 0)
+material_override = SubResource("StandardMaterial3D_vun4y")
+radius = 0.021
+height = 0.90722656
+sides = 4

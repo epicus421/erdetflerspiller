@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8abs8me7ckgo"]
+
+[ext_resource type="PackedScene" uid="uid://dbb4culid55v5" path="res://addons/proton_scatter/demos/assets/models/bush.glb" id="1"]
+[ext_resource type="Material" uid="uid://bn3fr3m3glrnp" path="res://addons/proton_scatter/demos/assets/materials/m_bush.tres" id="2"]
+
+[node name="bush" unique_id=771290977 instance=ExtResource("1")]
+
+[node name="Bush" parent="." index="0" unique_id=366605295]
+material_override = ExtResource("2")
+instance_shader_parameters/camera_bend_strength = 0.0

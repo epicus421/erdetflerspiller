@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://25vhdrup41b5"]
+
+[ext_resource type="PackedScene" uid="uid://bqm8npcbase01" path="res://scenes/npc/npc_base.tscn" id="1"]
+[ext_resource type="Resource" uid="uid://db7f3n2e28ike" path="res://data/quests/quest_kris_lua.tres" id="2"]
+
+[node name="Kristoffer" unique_id=136079042 instance=ExtResource("1")]
+npc_id = "kris"
+npc_name = "Kristoffer"
+npc_color = Color(0.9, 0.75, 0.2, 1)
+quests = [ExtResource("2")]

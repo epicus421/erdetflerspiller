@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bfuecun2d1p36"
+path.s3tc="res://.godot/imported/Character_18_Female_Police_Character_18_Female_Police.png-2da5b7f64c3f495e9edd76851479994a.png-23b30717be5c76037056946572796b31.s3tc.ctex"
+path.etc2="res://.godot/imported/Character_18_Female_Police_Character_18_Female_Police.png-2da5b7f64c3f495e9edd76851479994a.png-23b30717be5c76037056946572796b31.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "2249753bc5172ecc3640660e7ccde6d0"
+}
+
+[deps]
+
+source_file="res://assets/props/Characters_psx/Models/Female/Character_18_Female_Police_Character_18_Female_Police.png-2da5b7f64c3f495e9edd76851479994a.png"
+dest_files=["res://.godot/imported/Character_18_Female_Police_Character_18_Female_Police.png-2da5b7f64c3f495e9edd76851479994a.png-23b30717be5c76037056946572796b31.s3tc.ctex", "res://.godot/imported/Character_18_Female_Police_Character_18_Female_Police.png-2da5b7f64c3f495e9edd76851479994a.png-23b30717be5c76037056946572796b31.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

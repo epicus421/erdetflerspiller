@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cusvrti16r5eq"
+path="res://.godot/imported/lever grusen til steinar.ogg-0db4d94d00ae24bdddb07141b8788271.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/lever grusen til steinar.ogg"
+dest_files=["res://.godot/imported/lever grusen til steinar.ogg-0db4d94d00ae24bdddb07141b8788271.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

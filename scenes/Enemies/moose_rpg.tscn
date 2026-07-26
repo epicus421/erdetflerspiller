@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dgw8ix6fytrlf"]
+
+[ext_resource type="PackedScene" uid="uid://b6e5uuuasfnny" path="res://scenes/Enemies/moose.tscn" id="1"]
+[ext_resource type="Script" uid="uid://gypq7pd1n3sa" path="res://scenes/Enemies/moose_rpg.gd" id="2"]
+[ext_resource type="Resource" uid="uid://dn71dyben68oe" path="res://addons/fpstemplate/Weapons/Resources/RocketLauncherWeaponResources.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://bbig5q30fy4px" path="res://assets/weapons/models/rpg7.glb" id="4"]
+
+[node name="MooseEnemyRPG" unique_id=1193157692 instance=ExtResource("1")]
+script = ExtResource("2")
+runSpeed = 5.5
+attack_type = 2
+projectile_range = 30.0
+detection_range = 35.0
+lose_sight_range = 50.0
+enemy_weapon = ExtResource("3")
+
+[node name="HealthComponent" parent="." index="4" unique_id=1337633656]
+max_health = 250.0
+
+[node name="WeaponSlot" type="Node3D" parent="." index="6" unique_id=786441820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235, 3.545, 0)
+
+[node name="rpg7" parent="WeaponSlot" index="0" unique_id=2135135135 instance=ExtResource("4")]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, 0, 0, -0.19208467)

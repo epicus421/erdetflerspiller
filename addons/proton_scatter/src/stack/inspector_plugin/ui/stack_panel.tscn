@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dllpt2dven8vw"]
+
+[ext_resource type="Script" uid="uid://bmgeh6is6lgyu" path="res://addons/proton_scatter/src/stack/inspector_plugin/ui/stack_panel.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cun73k8jdmr4e" path="res://addons/proton_scatter/icons/add.svg" id="2"]
+[ext_resource type="Script" uid="uid://ciuy2bfypsxku" path="res://addons/proton_scatter/src/stack/inspector_plugin/ui/add_modifier_button.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://belutr5odecw2" path="res://addons/proton_scatter/src/stack/inspector_plugin/ui/modifier_list_popup/popup.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://yqlpvcmb7mfi" path="res://addons/proton_scatter/icons/rebuild.svg" id="5"]
+[ext_resource type="Texture2D" uid="uid://ddjrq1h4mkn6a" path="res://addons/proton_scatter/icons/load.svg" id="6"]
+[ext_resource type="Texture2D" uid="uid://b2omj2e03x72e" path="res://addons/proton_scatter/icons/save.svg" id="7"]
+[ext_resource type="Texture2D" uid="uid://do8d3urxirjoa" path="res://addons/proton_scatter/icons/doc.svg" id="8"]
+[ext_resource type="Script" uid="uid://c02b4rc26cxnm" path="res://addons/proton_scatter/src/stack/inspector_plugin/ui/modifier/drag_container.gd" id="9"]
+[ext_resource type="PackedScene" uid="uid://cfg8iqtuion8b" path="res://addons/proton_scatter/src/documentation/documentation.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bcsosdvstytoq" path="res://addons/proton_scatter/src/presets/presets.tscn" id="11"]
+
+[node name="StackPanel" type="MarginContainer" unique_id=238670682]
+clip_children = 1
+clip_contents = true
+offset_right = 456.0
+offset_bottom = 144.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=654038873]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=698791147]
+layout_mode = 2
+
+[node name="Add" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=206339216]
+layout_mode = 2
+size_flags_horizontal = 2
+focus_mode = 0
+toggle_mode = true
+text = " Add modifier"
+icon = ExtResource("2")
+script = ExtResource("3")
+
+[node name="ModifiersPopup" parent="VBoxContainer/HBoxContainer/Add" unique_id=233452020 instance=ExtResource("4")]
+unique_name_in_owner = true
+size = Vector2i(755, 322)
+visible = false
+
+[node name="Rebuild" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=290510285]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Force rebuild.
+
+If the placed items does not look as expected, you can press this button to force it to regenerate the result. 
+
+Usually, you shouldn't have to use it so please report it on Github if you found a case where it's necessary to click this. "
+focus_mode = 0
+icon = ExtResource("5")
+icon_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer" unique_id=1023763316]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 2
+
+[node name="LoadPreset" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=618063699]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Load a preset."
+focus_mode = 0
+text = "
+"
+icon = ExtResource("6")
+icon_alignment = 1
+
+[node name="SavePreset" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1714122944]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Save a preset."
+focus_mode = 0
+text = "
+"
+icon = ExtResource("7")
+icon_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer" unique_id=1472761253]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 2
+
+[node name="DocumentationButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=652371321]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Open documentation"
+focus_mode = 0
+text = "
+"
+icon = ExtResource("8")
+icon_alignment = 1
+
+[node name="ModifiersContainer" type="Container" parent="VBoxContainer" unique_id=189683151]
+unique_name_in_owner = true
+clip_children = 1
+custom_minimum_size = Vector2(0, -4)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+script = ExtResource("9")
+
+[node name="Documentation" parent="." unique_id=39709628 instance=ExtResource("10")]
+unique_name_in_owner = true
+
+[node name="Presets" parent="." unique_id=424365229 instance=ExtResource("11")]
+unique_name_in_owner = true

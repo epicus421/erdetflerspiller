@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dvpyrao1m46po"]
+
+[ext_resource type="Script" uid="uid://bgu4i7o5wm3gx" path="res://scripts/gorgon_trigger.gd" id="1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trigger"]
+size = Vector3(18, 6, 18)
+
+[node name="GorgonTrigger" type="Area3D" unique_id=2022609982]
+collision_mask = 3
+monitorable = false
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=551063633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_trigger")

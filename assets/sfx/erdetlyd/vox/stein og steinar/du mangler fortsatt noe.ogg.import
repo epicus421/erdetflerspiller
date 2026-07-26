@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5whekr7oujkv"
+path="res://.godot/imported/du mangler fortsatt noe.ogg-df37e4bf52cb6825ce68ab6dc6d1bbca.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/erdetlyd/vox/stein og steinar/du mangler fortsatt noe.ogg"
+dest_files=["res://.godot/imported/du mangler fortsatt noe.ogg-df37e4bf52cb6825ce68ab6dc6d1bbca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

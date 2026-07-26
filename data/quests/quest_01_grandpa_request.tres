@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Quest" format=3 uid="uid://b6oj3fwa4khk3"]
+
+[ext_resource type="Script" uid="uid://dhsffwqcwgjrm" path="res://components/quest/quest_objective.gd" id="1"]
+[ext_resource type="Script" uid="uid://cbwqdlinedlg1" path="res://components/dialogue/dialogue_line.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://dyvn3f02kiakx" path="res://assets/sfx/erdetlyd/vox/bestefar/q01_01.ogg" id="3"]
+[ext_resource type="AudioStream" uid="uid://ihlmknyc5664" path="res://assets/sfx/erdetlyd/vox/bestefar/q01_02.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://eb6g8b2bs1v2" path="res://assets/sfx/erdetlyd/vox/bestefar/q01_03.ogg" id="5"]
+[ext_resource type="Script" uid="uid://btn7n7rvethxf" path="res://components/quest/quest.gd" id="6"]
+
+[sub_resource type="Resource" id="Resource_816bt"]
+script = ExtResource("1")
+objective_id = "listen_to_grandpa"
+description = "Snakk med bestefar"
+type = 1
+target_id = "grandpa"
+
+[sub_resource type="Resource" id="Resource_kqret"]
+script = ExtResource("2")
+text = "Mormor er død."
+sound = ExtResource("3")
+
+[sub_resource type="Resource" id="Resource_vm1ni"]
+script = ExtResource("2")
+text = "Eg vil ha to is."
+sound = ExtResource("4")
+
+[sub_resource type="Resource" id="Resource_kiura"]
+script = ExtResource("2")
+text = "Her er arvedokumentet hennes, løs det inn i banken og kjøp is for pengene."
+sound = ExtResource("5")
+
+[resource]
+script = ExtResource("6")
+quest_id = "GRANDPA_REQUEST"
+name = "Bestefars ønske"
+description = "Bestefar vil ha noe."
+brief_description = "Bestefar vil ha noe. Finn ut hva du kan gjøre."
+objectives = [SubResource("Resource_816bt")]
+reward_items = ["inheritance_document"]
+unlock_quests = ["BANK_INHERITANCE"]
+offer_dialogue = ["Mormor er død.", "Jeg vil ha to is.", "Her er arvedokumentet hennes, løs det inn i banken og kjøp is for pengene."]
+offer_lines = [SubResource("Resource_kqret"), SubResource("Resource_vm1ni"), SubResource("Resource_kiura")]

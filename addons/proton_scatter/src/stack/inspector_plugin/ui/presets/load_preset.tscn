@@ -1,0 +1,67 @@
+[gd_scene format=3]
+
+[node name="LoadPresetPopup" type="WindowDialog" unique_id=1940048377]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -147.5
+margin_top = -156.5
+margin_right = 147.5
+margin_bottom = 156.5
+size_flags_horizontal = 5
+size_flags_vertical = 5
+window_title = "Load Presets"
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=407214009]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=841209797]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=767080187]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1736905926]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NoPresets" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=311759237]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "No presets found.
+
+Create new presets by pressing the \"Save Preset\" button first."
+vertical_alignment = 1
+
+[node name="PresetsRoot" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=632292494]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1002053210]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2123446247]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=750838683]
+visible = true
+dialog_text = "Delete preset?
+(This action can't be undone)"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_delete_preset_confirmed"]

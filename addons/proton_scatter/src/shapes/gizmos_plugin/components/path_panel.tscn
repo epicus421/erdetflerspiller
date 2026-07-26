@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://vijpujrvtyin"]
+
+[ext_resource type="Script" uid="uid://b4xeoco4oxu0v" path="res://addons/proton_scatter/src/shapes/gizmos_plugin/components/path_panel.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c1t5x34pc4vs5" path="res://addons/proton_scatter/icons/curve_select.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cmykha5ja17vj" path="res://addons/proton_scatter/icons/curve_create.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://cligdljx1ad5e" path="res://addons/proton_scatter/icons/curve_delete.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://n66mufjib4ds" path="res://addons/proton_scatter/icons/menu.svg" id="5"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_6mcff"]
+
+[node name="PathPanel" type="MarginContainer" unique_id=633443622]
+offset_right = 108.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=521675663]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=546328434]
+layout_mode = 2
+
+[node name="Select" type="Button" parent="HBoxContainer/HBoxContainer" unique_id=1842670166]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_6mcff")
+icon = ExtResource("2")
+flat = true
+icon_alignment = 1
+
+[node name="Create" type="Button" parent="HBoxContainer/HBoxContainer" unique_id=9208821]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_6mcff")
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+
+[node name="Delete" type="Button" parent="HBoxContainer/HBoxContainer" unique_id=1824890958]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_6mcff")
+icon = ExtResource("4")
+flat = true
+icon_alignment = 1
+
+[node name="Options" type="Button" parent="HBoxContainer" unique_id=944301940]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("5")
+flat = true
+icon_alignment = 1
+
+[node name="OptionsPanel" type="PopupPanel" parent="." unique_id=519300615]
+unique_name_in_owner = true
+size = Vector2i(229, 179)
+
+[node name="AdvancedOptionsPanel" type="MarginContainer" parent="OptionsPanel" unique_id=613999537]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 225.0
+offset_bottom = 175.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_custom_anchors = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel/AdvancedOptionsPanel" unique_id=1321576946]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer" unique_id=1254193756]
+layout_mode = 2
+
+[node name="MirrorAngle" type="CheckButton" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer/VBoxContainer" unique_id=1165414728]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Mirror handles angle"
+
+[node name="MirrorLength" type="CheckButton" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer/VBoxContainer" unique_id=1036712662]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Mirror handles length"
+
+[node name="ClosedPath" type="CheckButton" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer/VBoxContainer" unique_id=980366231]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Closed path"
+
+[node name="LockToPlane" type="CheckButton" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer/VBoxContainer" unique_id=1400132584]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Lock to plane"
+
+[node name="SnapToColliders" type="CheckButton" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer/VBoxContainer" unique_id=412642377]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Snap to colliders"
+
+[node name="VSeparator" type="VSeparator" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer" unique_id=451295778]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionsPanel/AdvancedOptionsPanel/HBoxContainer" unique_id=1368976511]
+layout_mode = 2

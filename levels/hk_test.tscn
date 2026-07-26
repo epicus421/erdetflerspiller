@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://brqtslp4qoglg"]
+
+[ext_resource type="Script" uid="uid://b2gfjdjg3l4sm" path="res://levels/hk_test.gd" id="1"]
+[ext_resource type="Script" uid="uid://xw3xwq1e7nnq" path="res://components/quest/quest_manager.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://scenes/PlayerCharacter/Scenes/PlayerCharacterScene.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/npc/hverdagskomiker.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://g2moat273ssu" path="res://scenes/props/kjiwi_door.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://be8rx0qmkrwoc" path="res://scenes/props/stoepsel_build_zone.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bp8jcqrndwdja" path="res://scenes/props/power_socket.tscn" id="7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sky"]
+
+[sub_resource type="Sky" id="Sky_env"]
+sky_material = SubResource("ProceduralSkyMaterial_sky")
+
+[sub_resource type="Environment" id="Environment_world"]
+background_mode = 2
+sky = SubResource("Sky_env")
+ambient_light_source = 2
+ambient_light_color = Color(0.5, 0.52, 0.55, 1)
+ambient_light_energy = 0.4
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(50, 0.5, 50)
+
+[node name="HKTest" type="Node3D" unique_id=1478957251]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=712603138]
+environment = SubResource("Environment_world")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1091444686]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1523189587]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=825476500]
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=631594622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="QuestManager" type="Node" parent="." unique_id=1397765473]
+script = ExtResource("2")
+
+[node name="PlayerCharacterScene" parent="." unique_id=1805815952 instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Hverdagskomiker" parent="." unique_id=1775655254 instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="KjiwiDoor" parent="." unique_id=1319177859 instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="StoepselBuildZone" parent="." unique_id=1082545845 instance=ExtResource("6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
+
+[node name="PowerSocket" parent="." unique_id=1624765491 instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 5)
+
+[node name="SceneLabel" type="Label3D" parent="." unique_id=1414905342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+billboard = 1
+text = "HK TEST SCENE"
+font_size = 48
