@@ -168,9 +168,3 @@ documented in [`multiplayer/README_MULTIPLAYER.md`](multiplayer/README_MULTIPLAY
 - A mod build targets a specific version of the game.
 - Found a bug? Open an issue on the [Issues](https://github.com/IkkeElias1/erdetflerspiller/issues)
   tab.
-
-## Credits
-
-Fork of [epicus421/erdetflerspiller](https://github.com/epicus421/erdetflerspiller),
-which did the original multiplayer work. All credit for **erdetspill** itself
-goes to its original developers.
