@@ -1401,14 +1401,6 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_bg"]
 bg_color = Color(0.1, 0.1, 0.1, 0.7)
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_tg1qx"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-
 [node name="PlayerCharacter" type="CharacterBody3D" unique_id=34579835 groups=["PlayerCharacter"]]
 collision_layer = 2
 collision_mask = 113
@@ -2026,6 +2018,3 @@ offset_right = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=468993956]
-replication_config = SubResource("SceneReplicationConfig_tg1qx")

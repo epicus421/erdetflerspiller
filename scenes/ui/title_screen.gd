@@ -95,6 +95,13 @@ func _ready() -> void :
 		settings_panel.refresh_from_game_manager()
 	_update_time_label()
 
+	# A Steam invite that arrives while the game is running (or that launched
+	# the game in the first place) has to actually take you somewhere — before
+	# this, join_lobby() ran silently behind a closed menu and it looked like
+	# accepting an invite did nothing at all.
+	if NetworkManager.has_signal("invite_received"):
+		NetworkManager.invite_received.connect(_on_invite_received)
+
 	if NetworkManager.pending_disconnect_message != "":
 		var msg: String = NetworkManager.pending_disconnect_message
 		NetworkManager.pending_disconnect_message = ""
@@ -103,6 +110,15 @@ func _ready() -> void :
 		_on_multiplayer()
 		if multiplayer_menu.has_method("show_status"):
 			multiplayer_menu.show_status(msg)
+		return
+
+	if NetworkManager.has_pending_invite():
+		# Launched by accepting a Steam invite. Still show the health warning
+		# (it auto-dismisses, and any key skips it) — the lobby will wait — but
+		# skip the 10-second title fly-in and go straight to connecting.
+		await _show_health_warning()
+		MusicManager.play("title")
+		_open_multiplayer_for_invite()
 		return
 
 	await _show_health_warning()
@@ -390,6 +406,28 @@ func _on_extras() -> void :
 func _on_multiplayer() -> void :
 	_set_frontpage_visible(false)
 	multiplayer_menu.open()
+
+
+func _on_invite_received(_lobby_id: int) -> void :
+	_open_multiplayer_for_invite()
+
+
+## Opens the panel first, THEN starts the join, so the connection status
+## messages land somewhere the player can actually read them.
+func _open_multiplayer_for_invite() -> void :
+	_skip_title_intro()
+	if settings_overlay:
+		settings_overlay.visible = false
+	if credits_panel:
+		credits_panel.visible = false
+	if episode_select:
+		episode_select.visible = false
+	if extras_menu:
+		extras_menu.visible = false
+	_on_multiplayer()
+	if multiplayer_menu.has_method("show_status"):
+		multiplayer_menu.show_status("Invitasjon mottatt — kobler til …")
+	NetworkManager.consume_pending_invite.call_deferred()
 
 
 func _on_episode_play(_episode: int) -> void :

@@ -121,10 +121,41 @@ func _ready():
 	if _grus_gravel != null:
 		_grus_gravel_home = _grus_gravel.position
 
+	# Weapons the party has already found are shared state, so mirror them onto
+	# this body — both the ones unlocked from now on and any that were picked
+	# up before we joined.
+	var gm: Node = get_node_or_null("/root/GameManager")
+	if gm != null and gm.has_signal("weapon_unlocked")\
+	and not gm.weapon_unlocked.is_connected(_on_party_weapon_unlocked):
+		gm.weapon_unlocked.connect(_on_party_weapon_unlocked)
+	if gm != null and "unlocked_weapons" in gm:
+		for weapon_id in gm.unlocked_weapons:
+			acquire_weapon_by_id(int(weapon_id), false)
+
 func initialize():
 	for weapon in weaponResources:
-
-		weaponList[weapon.weaponId] = weapon
+		if weapon == null:
+			continue
+		# Every PlayerCharacter instance is exported the SAME WeaponResource
+		# .tres objects, and Godot hands out one shared instance per file. That
+		# made mutable per-player state global across the whole lobby:
+		#
+		#   * `weaponSlot` is assigned below, so the last player to initialize
+		#     won the pointer and everyone else's `cWModel` then referred to
+		#     THAT player's weapon nodes — switching a weapon showed/hid the
+		#     model on somebody else's body.
+		#   * `isShooting` / `isReloading` are checked by changeWeapon(), so one
+		#     player reloading froze weapon switching for everyone.
+		#   * `totalAmmoInMag` was a single magazine shared by the party.
+		#
+		# A shallow duplicate keeps the heavy shared assets (meshes, sounds,
+		# curves, PackedScenes) shared while giving this player its own mutable
+		# fields. Also correct in single-player: the originals are cached
+		# between playthroughs, so mutating them leaked ammo across restarts.
+		var owned: WeaponResource = weapon.duplicate() as WeaponResource
+		if owned == null:
+			continue
+		weaponList[owned.weaponId] = owned
 
 	for weapo in weaponList.keys():
 
@@ -349,7 +380,11 @@ func displayStats():
 	var reserve: = int(float(reserve_total) / float(shots))
 	hud.displayAmmo(mag, reserve)
 
-func acquire_weapon_by_id(weapon_id: int) -> void :
+## `equip` is false when the weapon is arriving because a TEAMMATE picked it up
+## (GameManager.weapon_unlocked). The party shares which weapons it has found,
+## but yanking someone's gun out of their hands because a friend across the map
+## grabbed a shotgun would be obnoxious — so they just gain access to it.
+func acquire_weapon_by_id(weapon_id: int, equip: bool = true) -> void :
 
 	if weapon_id == HOLSTER_WEAPON_ID:
 		return
@@ -357,6 +392,8 @@ func acquire_weapon_by_id(weapon_id: int) -> void :
 		push_warning("Unknown weapon id: %s" % weapon_id)
 		return
 	if weapon_id in weaponStack:
+		if not equip:
+			return
 		_wm_debug("acquire_weapon_by_id(%s) already in stack — re-equip" % weapon_id)
 		weaponIndex = weaponStack.find(weapon_id)
 		_instant_equip_weapon(weapon_id)
@@ -367,11 +404,19 @@ func acquire_weapon_by_id(weapon_id: int) -> void :
 		return
 	var was_empty: = weaponStack.is_empty()
 	weaponStack.append(weapon_id)
-	_wm_debug("acquire_weapon_by_id(%s) stack now %s" % [weapon_id, weaponStack])
-	weaponIndex = weaponStack.size() - 1
+	_wm_debug("acquire_weapon_by_id(%s, equip=%s) stack now %s" % [weapon_id, equip, weaponStack])
 	if was_empty:
 		canUseWeapon = true
 		canChangeWeapons = true
+
+	if not equip:
+		# Keep holding whatever we were holding; just make the new weapon
+		# reachable on the wheel.
+		_ensure_holster_in_weapon_stack()
+		_refresh_reserve_dependent_weapon_meshes()
+		return
+
+	weaponIndex = weaponStack.size() - 1
 	changeWeapon(weapon_id)
 	if cW == null or not is_instance_valid(cW) or int(cW.weaponId) != weapon_id:
 		_instant_equip_weapon(weapon_id)
@@ -381,6 +426,28 @@ func acquire_weapon_by_id(weapon_id: int) -> void :
 	canUseWeapon = true
 	canChangeWeapons = true
 	_refresh_reserve_dependent_weapon_meshes()
+
+
+## Called by the pickup/shop/quest code on the player who actually took the
+## weapon. Routes through GameManager so the unlock reaches every peer (and is
+## replayed to anyone who joins later via the state snapshot); the local
+## equip happens immediately so it feels instant.
+func take_weapon_by_id(weapon_id: int) -> void :
+	if weapon_id == HOLSTER_WEAPON_ID:
+		return
+	acquire_weapon_by_id(weapon_id, true)
+	var gm: Node = get_node_or_null("/root/GameManager")
+	if gm != null and gm.has_method("unlock_weapon"):
+		gm.unlock_weapon(weapon_id)
+
+
+func _on_party_weapon_unlocked(weapon_id: int) -> void :
+	# Only mirror onto the body this manager belongs to, and never steal the
+	# player's current weapon.
+	if playChar != null and playChar.has_method("is_local_player")\
+	and not playChar.is_local_player():
+		return
+	acquire_weapon_by_id(weapon_id, false)
 
 
 func _ensure_holster_in_weapon_stack() -> void :

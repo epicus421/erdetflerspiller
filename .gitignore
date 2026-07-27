@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Godot engine cache
+# ---------------------------------------------------------------------------
+# Regenerated from source every time the project is opened: the import cache
+# (.godot/imported), shader cache, per-user editor layout and folding state.
+# ~800 MB of it, and it churns on every headless run or engine patch bump.
+# The *.import files next to each asset ARE committed — those are the settings;
+# .godot/ is just the compiled result of applying them.
+/.godot/
+
+# Written by the export dialog. Empty today, but this is where Godot stores the
+# script encryption key and the codesigning identity password — never commit it.
+export_credentials.cfg
+
+# ---------------------------------------------------------------------------
+# gdre_tools decompiler leftovers
+# ---------------------------------------------------------------------------
+# Godot skips directories whose name starts with "." when it scans res://, so
+# none of this is part of the game — it is the decompiler's working output kept
+# alongside the recovered project. Nothing in the project references it.
+#   .assets/        original .fbx/.blend sources extracted from the pck
+#   .autoconverted/ .gdc bytecode dumps of the original scripts
+/.assets/
+/.autoconverted/
+gdre_export.log
+
+# ---------------------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------------------
+# The exported mod .pck is a build artifact and would blow past GitHub's 100 MB
+# per-file limit anyway — ship it as a Release asset instead.
+*.pck
+*.pck.bak
+/build/
+/export/
+/exports/
+
+# Godot Android build template (only present if you ever install it)
+/android/
+
+# ---------------------------------------------------------------------------
+# Editor / OS noise
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# Windows System Restore / antivirus shadow copies, e.g.
+# ~libgodotsteam.windows.template_debug.x86_64.dll~RF251057.TMP left beside the
+# GodotSteam binaries. Never yours, never wanted.
+*.TMP
+~*.tmp
