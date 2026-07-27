@@ -116,6 +116,42 @@ func should_use_fps_mouse_capture() -> bool:
 	return is_local_player() and not is_sitting and not movement_frozen and not camera_frozen and not dialogue_waiting_for_button
 
 
+## Which weapon this player is holding, as a plain int so it can be replicated
+## (see multiplayer/player_net.gd). The weapon itself is per-player state — the
+## viewmodel, its ammo and the wheel index all stay local — but *which* gun is
+## in your hands has to be visible to everyone else, which is what this drives
+## on the remote avatar (multiplayer/player_avatar.gd).
+var net_weapon_id: int = 0
+
+## Which hand PNG the holster viewmodel is currently showing, as an index into
+## PlayerAppearance.HAND_TEXTURES. Replicated so the middle finger you flip
+## actually lands on someone else's screen — the viewmodel itself renders on a
+## layer only your own camera draws, so remote players saw nothing.
+var net_hand_gesture: int = 0
+
+
+## Maps the texture the local viewmodel just picked onto the shared, ordered
+## list that both ends agree on.
+func _net_hand_index_for(tex: Texture2D) -> int:
+	match tex:
+		HAND_FIST_TEX: return 0
+		HAND_PALM_TEX: return 1
+		HAND_MIDFINGER_TEX: return 2
+		HAND_OKSIGN_TEX: return 3
+		HAND_PALMAWAY_TEX: return 4
+		HAND_PEACE_TEX: return 5
+		HAND_PISTOL_TEX: return 6
+	return 0
+
+
+func _update_net_weapon_id() -> void :
+	if weapon_manager == null or not weapon_manager.has_method("get_current_weapon_id"):
+		return
+	var id: int = int(weapon_manager.get_current_weapon_id())
+	if id != net_weapon_id:
+		net_weapon_id = id
+
+
 ## True for the single player in solo play, and for whichever peer's own
 ## body this instance is in a multiplayer session. Everything input/camera/
 ## HUD-driven below is gated behind this so remote players don't react to
@@ -140,30 +176,89 @@ func _configure_as_remote_player() -> void:
 		# independent child nodes with their own Input-polling callbacks, so
 		# disabling processing on weapon_manager alone wouldn't stop them.
 		_disable_processing_recursive(weapon_manager)
-	if model:
-		# The body mesh is invisible=false / layer=2 by default so the LOCAL
-		# player never sees their own capsule (their camera's cull_mask=1
-		# excludes layer 2). For a remote player we want the opposite: show
-		# it, and put it back on layer 1 so other players' cameras render it.
-		model.visible = true
-		model.layers = 1
+	_disable_remote_weapon_viewport()
+	# The body mesh is a bare CapsuleMesh on render layer 2 — it exists only
+	# so the LOCAL player can cast a shadow without seeing their own body
+	# (their camera's cull_mask=1 excludes layer 2). Showing that to other
+	# players is what made everyone look like a bean, so a remote player gets
+	# a real PSX character model instead (multiplayer/player_avatar.gd), which
+	# hides the capsule itself. The capsule is only revived as a fallback if
+	# the character models are missing from the build.
+	if get_node_or_null("PlayerAvatar") == null:
+		var avatar: Node3D = Node3D.new()
+		avatar.name = "PlayerAvatar"
+		avatar.set_script(REMOTE_AVATAR_SCRIPT)
+		add_child(avatar)
 	_add_remote_name_tag()
 
 
+const REMOTE_AVATAR_SCRIPT: Script = preload("res://multiplayer/player_avatar.gd")
+
+var _name_tag: Label3D = null
+
+
+## The first-person weapon viewmodel is a full-screen SubViewportContainer
+## parented to the player body, drawing render layer 3 through its own camera
+## (the main camera's cull_mask is 1, so viewmodels are invisible in the world).
+##
+## That container ships with every PlayerCharacter — including the ones
+## representing OTHER players — so each remote body was stacking another
+## full-screen overlay on top of your view. When a teammate switched weapons,
+## THEIR gun appeared on YOUR screen. It was also rendering a 640x480 viewport
+## per remote player, every frame, for nothing.
+func _disable_remote_weapon_viewport() -> void:
+	var container: SubViewportContainer = get_node_or_null("SubViewportContainer") as SubViewportContainer
+	if container == null:
+		return
+	container.visible = false
+	var viewport: SubViewport = container.get_node_or_null("SubViewport") as SubViewport
+	if viewport != null:
+		viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		var cam: Camera3D = viewport.get_node_or_null("ViewportCam") as Camera3D
+		if cam != null:
+			# Its _process copies the main camera's transform every frame.
+			cam.set_process(false)
+
+
 func _add_remote_name_tag() -> void:
-	var display_name: String = "Spiller"
-	if NetworkManager != null:
-		var info: Dictionary = NetworkManager.peers.get(get_multiplayer_authority(), {})
-		display_name = str(info.get("name", display_name))
 	var tag: Label3D = Label3D.new()
 	tag.name = "NameTag"
-	tag.text = display_name
 	tag.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	tag.no_depth_test = true
-	tag.position = Vector3(0, 2.1, 0)
+	# The capsule's top sits at y=+1.0 (the body origin is its centre), so
+	# this hangs just above the head rather than the 2.1 the first pass used,
+	# which floated a good half-metre into the air.
+	tag.position = Vector3(0, 1.35, 0)
 	tag.font_size = 32
-	tag.outline_size = 8
+	tag.outline_size = 10
+	tag.modulate = Color(1.0, 0.92, 0.72)
+	tag.outline_modulate = Color(0, 0, 0, 0.9)
+	# Layer 2 is the "hide from the owning player" layer; this tag only ever
+	# hangs over someone else's head, so it belongs on the normal layer.
+	tag.layers = 1
 	add_child(tag)
+	_name_tag = tag
+	_refresh_name_tag()
+	if NetworkManager != null and NetworkManager.has_signal("roster_updated"):
+		# peer_connected fires before the joining peer has told us their name,
+		# so the first read is usually still the placeholder — re-read it when
+		# the real roster lands.
+		NetworkManager.roster_updated.connect(_on_roster_updated_for_tag)
+
+
+func _on_roster_updated_for_tag(_peers: Dictionary) -> void:
+	_refresh_name_tag()
+
+
+func _refresh_name_tag() -> void:
+	if _name_tag == null or not is_instance_valid(_name_tag):
+		return
+	var display_name: String = "Spiller"
+	if NetworkManager != null:
+		var info: Variant = NetworkManager.peers.get(get_multiplayer_authority(), null)
+		if info is Dictionary:
+			display_name = str((info as Dictionary).get("name", display_name))
+	_name_tag.text = display_name
 
 
 func _disable_processing_recursive(node: Node) -> void:
@@ -284,6 +379,11 @@ func _cache_base_fov() -> void :
 func _process(_delta: float):
 	if not is_local_player():
 		return
+	# Outside the menu check: the weapon in your hands should stay correct on
+	# everyone else's screen even while your own menu is open.
+	_update_net_weapon_id()
+	if _is_menu_blocking_input():
+		return
 	displayProperties()
 	_update_squint_input()
 
@@ -384,8 +484,21 @@ func _play_flashlight_sfx() -> void :
 	audio.finished.connect(audio.queue_free)
 
 
+## In a multiplayer session the pause menu deliberately does NOT pause the
+## SceneTree (that would freeze the shared world for one player and stall
+## every synchronizer on this machine), so the menu has to block gameplay
+## input the way the freeze used to.
+func _is_menu_blocking_input() -> bool:
+	if NetworkManager == null or not NetworkManager.is_active:
+		return false
+	return PauseMenu != null and PauseMenu.has_method("is_menu_paused")\
+		and PauseMenu.is_menu_paused()
+
+
 func _unhandled_input(event: InputEvent) -> void :
 	if not is_local_player():
+		return
+	if _is_menu_blocking_input():
 		return
 	if Input.is_action_just_pressed("flashlight"):
 		var focus: Control = get_viewport().gui_get_focus_owner()
@@ -594,19 +707,26 @@ func _raycast_hand_interactable() -> Node:
 	return null
 
 
+## Every path through here also records the result in net_hand_gesture, so the
+## hand other players see always matches the one on your own screen.
+func _set_hand_texture(sprite: Sprite3D, tex: Texture2D) -> void :
+	sprite.texture = tex
+	net_hand_gesture = _net_hand_index_for(tex)
+
+
 func _update_holster_hand_gesture() -> void :
 	var sprite: Sprite3D = _get_hand_sprite()
 	if sprite == null:
 		return
 
 	if DialogueUI != null and DialogueUI.has_method("is_open") and DialogueUI.is_open():
-		sprite.texture = HAND_FIST_TEX
+		_set_hand_texture(sprite, HAND_FIST_TEX)
 		return
 
 
 	if GameManager != null and GameManager.has_method("is_minigame_active")\
 	and GameManager.is_minigame_active():
-		sprite.texture = HAND_FIST_TEX
+		_set_hand_texture(sprite, HAND_FIST_TEX)
 		return
 
 
@@ -614,20 +734,20 @@ func _update_holster_hand_gesture() -> void :
 	if not Input.is_action_pressed("shoot"):
 		var idle_g: Dictionary = _current_gesture()
 		if String(idle_g.get("kind", "")) == "fingergun":
-			sprite.texture = idle_g.get("tex", HAND_FIST_TEX) as Texture2D
+			_set_hand_texture(sprite, idle_g.get("tex", HAND_FIST_TEX) as Texture2D)
 		else:
-			sprite.texture = HAND_FIST_TEX
+			_set_hand_texture(sprite, HAND_FIST_TEX)
 		return
 
 
 	if _raycast_hand_interactable() != null:
-		sprite.texture = HAND_PALM_TEX
+		_set_hand_texture(sprite, HAND_PALM_TEX)
 		return
 
 
 
 	var g: Dictionary = _current_gesture()
-	sprite.texture = g.get("tex", HAND_FIST_TEX) as Texture2D
+	_set_hand_texture(sprite, g.get("tex", HAND_FIST_TEX) as Texture2D)
 	if String(g.get("kind", "")) == "midfinger":
 		_try_finger_react()
 

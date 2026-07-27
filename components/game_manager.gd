@@ -18,6 +18,7 @@ signal minigame_started(minigame_id: String)
 signal pedestrian_died
 signal minigame_ended(minigame_id: String, score: int)
 signal gunshot_fired(position: Vector3, range: float)
+signal weapon_unlocked(weapon_id: int)
 signal day_changed(new_day: int)
 signal game_reset
 
@@ -33,6 +34,17 @@ signal game_reset
 var current_day: int = 1
 var day_duration_seconds: float = 600.0
 var player_name: String = "Sokrates"
+
+## Multiplayer profile, chosen in the lobby before hosting/joining and
+## persisted with the rest of the settings so you only type your name once.
+## Kept separate from `player_name` because `player_name` is per-playthrough
+## (the single-player intro asks for it every new game), while this is a
+## per-machine preference. NetworkManager copies it into `player_name` when a
+## session starts, so the rest of the game — postkasse, ID card, scholarship
+## form — sees the name you picked in the lobby.
+var mp_player_name: String = ""
+var mp_character_id: int = 0
+
 var player_money: int = 0
 var player_xp: int = 0
 
@@ -177,6 +189,7 @@ func serialize_state() -> Dictionary:
 		"kid_drawing_taken": kid_drawing_taken,
 		"id_card_ready": id_card_ready,
 		"id_card_collected": id_card_collected,
+		"unlocked_weapons": unlocked_weapons.duplicate(),
 	}
 
 
@@ -200,7 +213,12 @@ func apply_snapshot(state: Dictionary) -> void:
 	kid_drawing_taken = bool(state.get("kid_drawing_taken", kid_drawing_taken))
 	id_card_ready = bool(state.get("id_card_ready", id_card_ready))
 	id_card_collected = bool(state.get("id_card_collected", id_card_collected))
+	unlocked_weapons.assign(state.get("unlocked_weapons", unlocked_weapons))
 	money_changed.emit(player_money)
+	# Emitted after assigning, so a joining player's WeaponManager actually
+	# receives the party's already-found weapons instead of starting empty.
+	for weapon_id in unlocked_weapons:
+		weapon_unlocked.emit(int(weapon_id))
 	for item_id in inventory:
 		inventory_changed.emit(item_id, get_item_count(item_id))
 	for quest_id in active_quests:
@@ -1336,6 +1354,8 @@ func load_settings() -> void :
 	invert_y = bool(cfg.get_value("settings", "invert_y", false))
 	last_playthrough_time = float(cfg.get_value("settings", "last_playthrough_time", 0.0))
 	game_completed_once = bool(cfg.get_value("settings", "game_completed_once", false))
+	mp_player_name = str(cfg.get_value("multiplayer", "player_name", ""))
+	mp_character_id = int(cfg.get_value("multiplayer", "character_id", 0))
 	var skins_v: Variant = cfg.get_value("skins", "active", {})
 	if skins_v is Dictionary:
 		active_skins = skins_v
@@ -1363,6 +1383,8 @@ func save_settings() -> void :
 	cfg.set_value("settings", "game_completed_once", game_completed_once)
 	cfg.set_value("skins", "active", active_skins)
 	cfg.set_value("skins", "gestures", supporter_gestures_active)
+	cfg.set_value("multiplayer", "player_name", mp_player_name)
+	cfg.set_value("multiplayer", "character_id", mp_character_id)
 	cfg.save(SETTINGS_PATH)
 
 
@@ -1676,6 +1698,28 @@ func get_scholarship_penalty_remaining() -> float:
 	return maxf(0.0, scholarship_penalty_until - now)
 
 
+## Which weapons the party has found. Deliberately PARTY-wide: picking a gun
+## off the floor unlocks it for everyone, the same way money and inventory are
+## shared. What stays strictly per-player is the stuff that describes a single
+## body rather than the party's progress — reserve/magazine ammo
+## (AmmunitionManager.ammoDict, WeaponResource.totalAmmoInMag) and which weapon
+## you personally have equipped (WeaponManager.weaponIndex).
+var unlocked_weapons: Array[int] = []
+
+
+func unlock_weapon(weapon_id: int) -> void :
+	if _redirect_to_host("unlock_weapon", [weapon_id]):
+		return
+	if weapon_id <= 0 or unlocked_weapons.has(weapon_id):
+		return
+	unlocked_weapons.append(weapon_id)
+	weapon_unlocked.emit(weapon_id)
+
+
+func has_weapon_unlocked(weapon_id: int) -> bool:
+	return unlocked_weapons.has(weapon_id)
+
+
 func apply_for_id_card() -> void :
 	if _redirect_to_host("apply_for_id_card", []):
 		return
@@ -1744,6 +1788,7 @@ func reset_game():
 	id_card_ready = false
 	id_card_collected = false
 	id_card_data = {}
+	unlocked_weapons.clear()
 	if FileAccess.file_exists(ID_CARD_PATH):
 		DirAccess.remove_absolute(ID_CARD_PATH)
 	visited_store_during_second_ice = false

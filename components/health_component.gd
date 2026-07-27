@@ -94,11 +94,19 @@ func revive() -> void :
 	current_health = max_health
 
 
+## Only these three may be driven remotely. `has_method()` would have let any
+## peer call anything on this node — including `_setup_sync`, `free`, or
+## `set_script` — which is a bad idea in P2P even among friends, since one
+## desynced or modified client could crash everyone else.
+const REMOTE_ALLOWED_METHODS: Array[String] = ["take_damage", "heal", "revive"]
+
+
 @rpc("any_peer", "call_remote", "reliable")
 func _request(method: String, args: Array) -> void:
 	if not is_authority():
 		return
-	if not has_method(method):
+	if not REMOTE_ALLOWED_METHODS.has(method):
+		push_warning("[HealthComponent] Rejected remote call: %s" % method)
 		return
 	callv(method, args)
 
@@ -112,4 +120,12 @@ func _setup_sync() -> void:
 	var sync: MultiplayerSynchronizer = MultiplayerSynchronizer.new()
 	sync.name = "HealthSync"
 	sync.replication_config = config
+	# Set BEFORE add_child: a synchronizer decides who transmits when it enters
+	# the tree, and setting the authority afterwards does not make it
+	# re-evaluate. A fresh node defaults to authority 1, so without this a
+	# client's own health would be "broadcast" by the host — which never
+	# applies it — and their health would never change on anyone else's screen.
+	# For level-baked entities (enemies, NPCs, wildlife) this resolves to 1
+	# anyway, which is what we want.
+	sync.set_multiplayer_authority(get_multiplayer_authority())
 	add_child(sync)

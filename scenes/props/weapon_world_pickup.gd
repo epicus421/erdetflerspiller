@@ -53,14 +53,25 @@ func _set_label_visible(visible: bool) -> void :
 		_pickup_label.visible = visible
 
 
+## Only the body this machine actually controls may trigger the pickup.
+## Otherwise a teammate standing on the weapon armed OUR "E" key, and pressing
+## it handed the gun to their WeaponManager instead of ours.
+func _is_local_body(body: Node3D) -> bool:
+	if not body.is_in_group("PlayerCharacter"):
+		return false
+	if body.has_method("is_local_player"):
+		return body.is_local_player()
+	return true
+
+
 func _on_entered(body: Node3D) -> void :
-	if body.is_in_group("PlayerCharacter"):
+	if _is_local_body(body):
 		_player_nearby = body
 		_set_label_visible(true)
 
 
 func _on_exited(body: Node3D) -> void :
-	if body.is_in_group("PlayerCharacter"):
+	if body == _player_nearby:
 		_player_nearby = null
 		_set_label_visible(false)
 
@@ -84,7 +95,10 @@ func _pick_up() -> void :
 		wm = player.get_node_or_null(wm_path)
 	if wm == null:
 		wm = player.get_node_or_null("WeaponManager")
-	if wm and wm.has_method("acquire_weapon_by_id"):
+	if wm and wm.has_method("take_weapon_by_id"):
+		# take_weapon_by_id equips it here and unlocks it for the whole party.
+		wm.take_weapon_by_id(int(weapon_int_id))
+	elif wm and wm.has_method("acquire_weapon_by_id"):
 		if int(weapon_int_id) in wm.weaponStack:
 			pass
 		else:

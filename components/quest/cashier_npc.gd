@@ -579,7 +579,10 @@ func _give_weapon_to_player(weapon_int_id: int, skip_reserve_ammo: bool = false)
 		return
 	if weapon_int_id in weapon_manager.weaponStack:
 		return
-	if weapon_manager.has_method("acquire_weapon_by_id"):
+	if weapon_manager.has_method("take_weapon_by_id"):
+		# Equips locally and unlocks the weapon for the whole party.
+		weapon_manager.take_weapon_by_id(weapon_int_id)
+	elif weapon_manager.has_method("acquire_weapon_by_id"):
 		weapon_manager.acquire_weapon_by_id(weapon_int_id)
 	else:
 		weapon_manager.weaponStack.append(weapon_int_id)
