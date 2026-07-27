@@ -128,7 +128,10 @@ func _grant_instant_weapon_to_player() -> void :
 	var wid: = weapon_int_id
 	if wid in wm.weaponStack:
 		return
-	if wm.has_method("acquire_weapon_by_id"):
+	if wm.has_method("take_weapon_by_id"):
+		# Equips locally and unlocks the weapon for the whole party.
+		wm.take_weapon_by_id(wid)
+	elif wm.has_method("acquire_weapon_by_id"):
 		wm.acquire_weapon_by_id(wid)
 	else:
 		wm.weaponStack.append(wid)

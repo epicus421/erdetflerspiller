@@ -30,6 +30,45 @@ extends Node
 var current_actor_peer_id: int = 0
 
 
+## Exactly the GameManager mutators that call `_redirect_to_host()` — nothing
+## else may be invoked across the wire. The first pass gated this on
+## `GameManager.has_method(method)`, which meant any peer could make every
+## other machine call *any* method on the GameManager autoload
+## (`reset_game`, `save_settings`, `set_script`, `free`, …). Even in a
+## friends-only lobby that turns one out-of-date or modified client into a
+## crash for the whole party, so the allowlist is the safe default.
+##
+## Keep this in sync when adding a new networked mutator: search
+## game_manager.gd for `_redirect_to_host(`.
+const ALLOWED_METHODS: Array[String] = [
+	"add_flat_money_reward",
+	"add_icecream_to_freezer",
+	"add_item",
+	"add_quest_by_id",
+	"apply_for_id_card",
+	"bank_document_payout",
+	"bank_transaction",
+	"collect_id_card",
+	"complete_quest_by_id",
+	"register_dead_npc",
+	"register_npc_talked",
+	"remove_item",
+	"remove_money",
+	"reset_quest_by_id",
+	"unlock_weapon",
+	"update_quest_objective",
+	"update_quest_progress",
+	"use_item",
+]
+
+
+func _is_allowed(method: String) -> bool:
+	if ALLOWED_METHODS.has(method) and GameManager.has_method(method):
+		return true
+	push_warning("[GameNet] Rejected non-allowlisted method: %s" % method)
+	return false
+
+
 func request_on_host(method: String, args: Array) -> void:
 	if NetworkManager == null or not NetworkManager.is_active or NetworkManager.is_host:
 		return
@@ -40,8 +79,7 @@ func request_on_host(method: String, args: Array) -> void:
 func _request(method: String, args: Array) -> void:
 	if not NetworkManager.is_host:
 		return
-	if not GameManager.has_method(method):
-		push_warning("[GameNet] Unknown method requested by client: %s" % method)
+	if not _is_allowed(method):
 		return
 	current_actor_peer_id = multiplayer.get_remote_sender_id()
 	GameManager.callv(method, args)
@@ -53,8 +91,7 @@ func _request(method: String, args: Array) -> void:
 func _replay(method: String, args: Array) -> void:
 	# call_remote (not call_local): the host already applied this directly
 	# in _request above — replaying it here too would double-apply it.
-	if not GameManager.has_method(method):
-		push_warning("[GameNet] Unknown method in replay: %s" % method)
+	if not _is_allowed(method):
 		return
 	GameManager._remote_apply = true
 	GameManager.callv(method, args)

@@ -30,6 +30,73 @@ func _ready() -> void :
 		_restart_btn.pressed.connect(_on_restart)
 	if _quit_btn:
 		_quit_btn.pressed.connect(_on_quit_pressed)
+	_build_leave_party_button()
+
+
+## Multiplayer-only: leaving mid-session previously had no UI at all, so a
+## host who wanted out had to alt-F4 (which drops everyone).
+var _leave_party_btn: Button = null
+
+func _build_leave_party_button() -> void :
+	if _quit_btn == null or _quit_btn.get_parent() == null:
+		return
+	var btn: = Button.new()
+	btn.name = "LeavePartyButton"
+	btn.text = "FORLAT ØKTEN"
+	btn.visible = false
+	btn.pressed.connect(_on_leave_party)
+	var box: = _quit_btn.get_parent()
+	box.add_child(btn)
+	box.move_child(btn, _quit_btn.get_index())
+	_leave_party_btn = btn
+
+
+func _on_leave_party() -> void :
+	unpause()
+	if NetworkManager != null:
+		NetworkManager.leave_and_return_to_title()
+	else:
+		get_tree().change_scene_to_file("res://scenes/ui/title_screen.tscn")
+
+
+func _is_multiplayer() -> bool:
+	return NetworkManager != null and NetworkManager.is_active
+
+
+var _frozen_movement_before: bool = false
+var _frozen_camera_before: bool = false
+var _froze_local_player: bool = false
+
+
+## With the SceneTree left running in multiplayer, the local body would still
+## walk around behind the menu — so freeze just that body instead of the
+## whole world. Restores whatever the flags were before (a dialogue may have
+## set them), rather than blindly clearing them.
+func _set_local_player_frozen(frozen: bool) -> void :
+	# Unfreezing must still run when the session has already ended (host
+	# dropped while we were in this menu), or the body stays locked.
+	if frozen and not _is_multiplayer():
+		return
+	if not frozen and not _froze_local_player:
+		return
+	var player: Node = NetUtil.get_local_player()
+	if player == null:
+		return
+	if frozen:
+		if _froze_local_player:
+			return
+		_frozen_movement_before = bool(player.get("movement_frozen"))
+		_frozen_camera_before = bool(player.get("camera_frozen"))
+		_froze_local_player = true
+		player.set("movement_frozen", true)
+		player.set("camera_frozen", true)
+		player.set("velocity", Vector3.ZERO)
+	else:
+		if not _froze_local_player:
+			return
+		_froze_local_player = false
+		player.set("movement_frozen", _frozen_movement_before)
+		player.set("camera_frozen", _frozen_camera_before)
 
 
 func _unhandled_input(event: InputEvent) -> void :
@@ -82,10 +149,24 @@ func is_menu_paused() -> bool:
 
 func pause() -> void :
 	_paused = true
-	get_tree().paused = true
+	# In a session the world belongs to everyone, so one player opening a menu
+	# must not stop it. Pausing the SceneTree would also freeze every
+	# MultiplayerSynchronizer on this machine, so the other players would
+	# visibly stall and this player's own body would stop being sent — they'd
+	# come back to a world that had moved on without them. Everything that
+	# matters here (mouse released, input gated) works without the freeze.
+	get_tree().paused = not _is_multiplayer()
+	_set_local_player_frozen(true)
 	visible = true
 	if _panel:
 		_panel.show()
+	if _leave_party_btn:
+		_leave_party_btn.visible = _is_multiplayer()
+	if _restart_btn:
+		# Restarting is a whole-party decision, not a per-player one — a
+		# client reloading the level alone would just desync itself from
+		# everyone. "FORLAT ØKTEN" is the multiplayer equivalent.
+		_restart_btn.visible = not _is_multiplayer()
 	_hide_settings()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -96,6 +177,7 @@ func pause() -> void :
 func unpause() -> void :
 	_paused = false
 	get_tree().paused = false
+	_set_local_player_frozen(false)
 	visible = false
 	if _panel:
 		_panel.hide()
@@ -128,6 +210,8 @@ func _show_settings() -> void :
 		_settings_btn.hide()
 	if _restart_btn:
 		_restart_btn.hide()
+	if _leave_party_btn:
+		_leave_party_btn.hide()
 	if _quit_btn:
 		_quit_btn.hide()
 	if _settings_panel:
@@ -149,7 +233,9 @@ func _hide_settings() -> void :
 	if _settings_btn:
 		_settings_btn.show()
 	if _restart_btn:
-		_restart_btn.show()
+		_restart_btn.visible = not _is_multiplayer()
+	if _leave_party_btn:
+		_leave_party_btn.visible = _is_multiplayer()
 	if _quit_btn:
 		_quit_btn.show()
 
@@ -168,4 +254,9 @@ func _on_restart() -> void :
 
 func _on_quit_pressed() -> void :
 	unpause()
+	# Tear the session down explicitly instead of walking away from a live
+	# multiplayer_peer — otherwise the title screen's "VÆR VERT" refuses to
+	# start ("Already in a session") until the game is restarted.
+	if _is_multiplayer():
+		NetworkManager.leave()
 	get_tree().change_scene_to_file("res://scenes/ui/title_screen.tscn")
